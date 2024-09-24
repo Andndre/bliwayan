@@ -1,0 +1,82 @@
+:root {
+
+}
+
+.h1 {
+	font-size: 4rem;
+}
+
+p {
+	font-size: 1.1rem;
+}
+
+p small {
+	font-size: 1rem;
+}
+
+h1, h2 {
+	font-family: "Playfair Display", system-ui;
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-size: 1.3rem;
+}
+
+.navbar-nav {
+	column-gap: 2.5rem;
+	align-items: center;
+}
+
+.nav-link {
+	color: black;
+	font-weight: 500;
+}
+
+.nav-item > .nav-link.active {
+	padding: .7rem 1.4rem;
+	border-radius: 5rem;
+	background-color: #DBDFD0;
+}
+
+.nav-item > .nav-link.active:hover {
+	background-color: #c6c9bc;
+}
+
+.btn {
+	--bs-btn-padding-x: 1.4rem;
+	--bs-btn-padding-y: 0.7rem;
+	--bs-btn-font-weight: 600;
+	--bs-btn-border-radius: 5rem;
+}
+
+.btn-outline-secondary {
+	--bs-btn-border-width: 2px;
+	--bs-btn-border-color: black;
+	--bs-btn-color: #131415;
+	--bs-btn-hover-bg: #131415;
+}
+
+.btn-primary {
+	--bs-btn-bg: #AD343E;
+	--bs-btn-border-color: #AD343E;
+	--bs-btn-hover-bg: #912c34;
+	--bs-btn-hover-border-color: #912c34;
+	--bs-btn-active-bg: #912c34;
+	--bs-btn-active-border-color: #7a252c;
+	--bs-btn-disabled-bg: #ad343e;
+	--bs-btn-disabled-border-color: #AD343E;
+	--bs-btn-focus-shadow-rgb: 173, 52, 62;
+}
+
+.card {
+	--bs-card-spacer-y: 1.9rem;
+	--bs-card-spacer-x: 1.9rem;
+}
