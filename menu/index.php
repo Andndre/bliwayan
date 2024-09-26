@@ -74,7 +74,7 @@
 			<div class="row">
 					<?php foreach ($menus as $menu) : ?>
 							<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3">
-									<div class="card menu">
+									<div class="card menu" style="overflow: hidden;">
 											<img src="<?= $menu->image ?>" class="card-img-top" alt="menu image">
 											<div class="card-body">
 													<h5 class="card-title menu"><?= $menu->price ?></h5>
