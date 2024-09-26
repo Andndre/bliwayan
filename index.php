@@ -11,12 +11,12 @@
 				<h1 style="max-width: 400px;">Best food for your taste</h1>
 				<p style="max-width: 400px;">Come for the food, and experience with our friendly service.</p>
 				<div class="d-flex gap-2 justify-content-center">
-					<button class="btn btn-primary">
+					<a href="/book-now" class="btn btn-primary">
 						Book a Table
-					</button>
-					<button class="btn btn-outline-secondary">
+					</a>
+					<a href="/menu" class="btn btn-outline-secondary">
 						Explore Menu
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -66,7 +66,7 @@
 			</div>
 		</div>
 		<div class="pt-4 text-center">
-			<a class="btn btn-outline-secondary" href="#">Book a Table</a>
+			<a class="btn btn-outline-secondary" href="/book-now/">Book a Table</a>
 		</div>
 	</section>
 	<!-- Browse Our Menu - End -->
@@ -93,7 +93,7 @@
 						<h2>We provide healthy food for your family.</h2>
 						<p class="pt-3">The story of Bli Wayan Cafe & Kitchen begins with a vision to become a comfortable place to eat, able to satisfy customers, making the taste of the food memorable and hard to forget. Rooted in a rich culinary culture, we strive to honor our local culinary riches while incorporating global flavors.</p>
 						<p class="pt-3">At Bli Wayan Cafe & Kitchen, we believe that dining is not just about the food, but also about the entire experience. Our staff, known for their friendliness and dedication, strives to make every visit a memorable moment.</p>
-						<button class="btn btn-outline-secondary mt-3">More About Us</button>
+						<a href="/about" class="btn btn-outline-secondary mt-3">More About Us</a>
 					</div>
 				</div>
 			</div>

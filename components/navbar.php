@@ -26,7 +26,7 @@
       </ul>
 			<div class="navbar-nav ml-auto">
 				<div class="nav-item">
-					<a class="btn btn-outline-secondary" href="#">Book a Table</a>
+					<a class="btn btn-outline-secondary" href="/book-now/">Book a Table</a>
 				</div>
 			</div>
     </div>

@@ -14,11 +14,11 @@
                 <h4>Pages</h4>
                 <nav>
                     <ul class="list-unstyled">
-                        <li><a href="" style="text-decoration: none; color: white;">Home</a></li>
-                        <li><a href="" style="text-decoration: none; color: white;">About</a></li>
-                        <li><a href="" style="text-decoration: none; color: white;">Menu</a></li>
-                        <li><a href="" style="text-decoration: none; color: white;">Gallery</a></li>
-                        <li><a href="" style="text-decoration: none; color: white;">Reservasi</a></li>
+                        <li><a href="/" style="text-decoration: none; color: white;">Home</a></li>
+                        <li><a href="/about" style="text-decoration: none; color: white;">About</a></li>
+                        <li><a href="/menu" style="text-decoration: none; color: white;">Menu</a></li>
+                        <li><a href="/gallery" style="text-decoration: none; color: white;">Gallery</a></li>
+                        <li><a href="/book-now" style="text-decoration: none; color: white;">Reservasi</a></li>
                     </ul>
                 </nav>
             </div>

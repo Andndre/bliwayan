@@ -20,28 +20,28 @@
 	// Ambil dari database
 	$gallery = [
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/bd.png',
 			],
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/ft.png',
 			],
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/ho.png',
 			],
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/vip.png',
 			],
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/bd.png',
 			],
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/ft.png',
 			],
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/ho.png',
 			],
 			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
+					'image' => '/images/illustrations/vip.png',
 			]
 	];
 	?>
