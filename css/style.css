@@ -156,3 +156,18 @@ ul.list-icons-primary svg {
 	--bs-btn-hover-border-color: rgb(177, 177, 177);
 	--bs-btn-active-bg: rgb(241, 241, 241);
 }
+
+.card.menu {
+	text-align: center;
+
+	.card-title {
+		color: #AD343E;
+	}
+
+	p {
+		text-align: center;
+		strong {
+			font-size: 1.3rem;
+		}
+	}
+}
