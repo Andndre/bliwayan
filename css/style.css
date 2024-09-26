@@ -83,6 +83,17 @@ ul.list-style-none {
 	padding: 0;
 }
 
-ul.list-icons-primary i {
-	color: #AD343E;
+ul.list-icons-primary li {
+	margin-bottom: .5rem;
+	display: flex;
+	gap: 1rem;
+}
+
+ul.list-icons-primary svg {
+	background-color: #AD343E;
+	color: white;
+	border-radius: 50%;
+	padding: .5rem;
+	width: 2rem;
+	height: 2rem;
 }
