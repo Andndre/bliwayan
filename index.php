@@ -76,8 +76,18 @@
 			<div class="container py-5">
 				<div class="pt-5"></div>
 				<div class="row">	
-					<div class="col-12 col-lg-6">
-						<img class="img-fluid" src="/images/illustrations/illustration-1.png" alt="illustration">
+					<div class="col-12 col-lg-6" style="position: relative;">
+						<img class="img-fluid" style="width: 80%;" src="/images/illustrations/illustration-1.png" alt="illustration">
+						<div class="card card-dark" style="position: absolute; bottom: 0; right: 1rem;">
+							<div class="card-body w-100" style="max-width: 300px;">
+								<h3>Come and visit us</h3>
+								<ul class="list-unstyled">
+									<li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> 0815-5848-0000</li>
+									<li class="d-flex gap-2 align-items-start"><i data-feather="mail" class="icon-size"></i> <a href="mailto:bliwayan10@icloud.com" style="text-decoration: none; color: white;">bliwayan10@icloud.com</a></li>
+									<li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> Jl. Raya Bedugul, Batunya, Kec. Baturiti, Kabupaten Tabanan, Bali 82191</li>
+                </ul>
+							</div>
+						</div>
 					</div>
 					<div class="col-12 col-lg-6">
 						<h2>We provide healthy food for your family.</h2>
@@ -141,7 +151,37 @@
 	 </section>
 	<!-- comfortable place facilities for all activities - End -->
 
+	<!-- what our customer say - Start -->
+	<section class="container py-5">
+		<div class="pt-5"></div>
+		<h2 class="text-center">What Our Customers Say.</h2>
+		<div class="row pt-5">
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card">
+					<div class="card-body">
+						<img class="img-fluid" src="/images/reviews/1.png" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card">
+					<div class="card-body">
+						<img class="img-fluid" src="/images/reviews/2.png" alt="">
+					</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6 col-lg-4">
+				<div class="card">
+					<div class="card-body">
+						<img class="img-fluid" src="/images/reviews/3.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- what our customer say - End -->
 </main>
+<?php include 'components/footer.php'; ?>
 <?php include 'layout/scripts.php'; ?>
 </body>
 </html>
