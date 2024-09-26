@@ -31,5 +31,10 @@
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center mt-5 text-gray">Copyright © 2024 Bli Wayan Cafe & Kitchen</p>
+            </div>
+        </div>
     </div>
 </footer>

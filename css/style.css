@@ -138,3 +138,7 @@ ul.list-icons-primary svg {
 	background-color: rgb(var(--bs-dark-rgb));
 	color: white;
 }
+
+.text-gray {
+	color: gray;
+}
