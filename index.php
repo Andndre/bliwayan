@@ -119,6 +119,29 @@
 	</section>
 	<!-- We also offer optimal services for your experience - End -->
 
+	<!-- comfortable place facilities for all activities - Start -->
+	<section class="bg-light">
+			<div class="container py-5">
+				<div class="pt-5"></div>
+				<div class="row">	
+					<div class="col-12 col-lg-6">
+						<img class="img-fluid" src="/images/illustrations/illustration-2.png" alt="illustration">
+					</div>
+					<div class="col-12 col-lg-6">
+						<h2>comfortable place facilities for all activities.</h2>
+						<p class="pt-3">Bli Wayan Cafe and Kitchen has an outdoor area that pampers the natural views and a comfortable indoor area with tables and chairs as well as a relaxing area for sitting on bean bag pillows. Each of our places is suitable as an aesthetic and instagrammable photo spot..</p>
+						<ul class="list-style-none list-icons-primary">
+							<li><i data-feather="circle"></i> Wi-Fi</li>
+							<li><i data-feather="check-circle"></i> Free Parking</li>
+							<li><i data-feather="check-circle"></i> Comfortable Place</li>
+							<li><i data-feather="check-circle"></i> Instagrammable Spot</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	 </section>
+	<!-- comfortable place facilities for all activities - End -->
+
 </main>
 <?php include 'layout/scripts.php'; ?>
 </body>

@@ -76,3 +76,13 @@ h3 {
 	--bs-card-spacer-y: 1.9rem;
 	--bs-card-spacer-x: 1.9rem;
 }
+
+ul.list-style-none {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.list-icons-primary i {
+	color: #AD343E;
+}
