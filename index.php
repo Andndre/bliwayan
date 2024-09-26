@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Bliwayan</title>
-	<!-- Font -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+<?php include 'layout/head.php'; ?>
 <body>
 <?php include 'components/navbar.php'; ?>
 <main>
@@ -86,9 +75,9 @@
 	 <section class="bg-light">
 			<div class="container py-5">
 				<div class="pt-5"></div>
-				<div class="row">
+				<div class="row">	
 					<div class="col-12 col-lg-6">
-						<img src="/images/illustrations/illustration-1.png" alt="illustration">
+						<img class="img-fluid" src="/images/illustrations/illustration-1.png" alt="illustration">
 					</div>
 					<div class="col-12 col-lg-6">
 						<h2>We provide healthy food for your family.</h2>
@@ -107,22 +96,22 @@
 		<h2>We also offer optimal services for your experience.</h2>
 		<div class="row pt-5">
 			<div class="col-12 col-md-6 col-lg-3">
-				<img src="/images/illustrations/vip.png" alt="vip">
+				<img class="img-fluid" src="/images/illustrations/vip.png" alt="vip">
 				<h3 class="pt-4">VIP</h3>
 				<p>Enjoy exclusive and special service for those seeking a dining experience beyond the ordinary.</p>
 			</div>
 			<div class="col-12 col-md-6 col-lg-3">
-				<img src="/images/illustrations/bd.png" alt="birthday">
+				<img class="img-fluid" src="/images/illustrations/bd.png" alt="birthday">
 				<h3 class="pt-4">Birthdays</h3>
 				<p>Celebrate your special day with unforgettable moments, accompanied by delicious food and a warm atmosphere.</p>
 			</div>
 			<div class="col-12 col-md-6 col-lg-3">
-				<img src="/images/illustrations/ft.png" alt="family time">
+				<img class="img-fluid" src="/images/illustrations/ft.png" alt="family time">
 				<h3 class="pt-4">Family Time</h3>
 				<p>Gather your family and spend quality time together while enjoying favorite dishes for everyone.</p>
 			</div>
 			<div class="col-12 col-md-6 col-lg-3">
-				<img src="/images/illustrations/ho.png" alt="hang out">
+				<img class="img-fluid" src="/images/illustrations/ho.png" alt="hang out">
 				<h3 class="pt-4">Hang Out</h3>
 				<p>The perfect place to relax and hang out with friends, with a cozy atmosphere and mouth-watering food.</p>
 			</div>
@@ -131,7 +120,6 @@
 	<!-- We also offer optimal services for your experience - End -->
 
 </main>
-<script src="js/jquery-3.2.1.slim.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<?php include 'layout/scripts.php'; ?>
 </body>
 </html>
