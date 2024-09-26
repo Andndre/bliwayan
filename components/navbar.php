@@ -9,19 +9,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link <?= $_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '/index.php' ? 'active' : '' ?>" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], 'about') !== false) ? 'active' : '' ?>" href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Menu</a>
+          <a class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], 'menu') !== false) ? 'active' : '' ?>" href="/menu">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Galerry</a>
+          <a class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], 'gallery') !== false) ? 'active' : '' ?>" href="/gallery">Gallery</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], 'contact') !== false) ? 'active' : '' ?>" href="/contact">Contact</a>
         </li>
       </ul>
 			<div class="navbar-nav ml-auto">
