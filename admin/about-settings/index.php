@@ -1,7 +1,15 @@
+<?php 
+session_start();
+if(!isset($_SESSION['user_id']))
+{
+    header('location:login/');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'layout/head.php'; ?>
+<?php include '../layout/head.php'; ?>
 
 <body id="page-top">
 
@@ -9,7 +17,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?php include 'components/sidebar.php'; ?>
+        <?php include '../components/sidebar.php'; ?>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -19,7 +27,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <?php include 'components/navbar.php'; ?>
+                <?php include '../components/navbar.php'; ?>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -53,32 +61,33 @@
                                 <label>Keterangan</label>
                                 <textarea class="form-control" rows="7" name="keterangan"></textarea>
                               </div>
-                              <div class="form-group cols-sm-6 mb-3">
-                                <label>Jenis</label>
-                                <select class="form-control" name="jenis">
-                                  <option value="" hidden></option>
-                                  <option value="makanan">Makanan</option>
-                                  <option value="minuman">Minuman</option>
-                                  <option value="Lainnya">Lainnya</option>
-                                </select>
+                              <div class="form-group cols-sm-6">
+                                <label>No Telp</label>
+                                <input type="text" name="telp" class="form-control">
                               </div>
                               <div class="form-group cols-sm-6">
-                                <label>Harga</label>
-                                <input type="text" name="harga" class="form-control">
+                                <label>Email</label>
+                                <input type="text" name="email" class="form-control">
                               </div>
-                              <div class="form-group cols-sm-6 mb-3">
-                                <label>Keterangan</label>
-                                <textarea class="form-control" rows="7" name="keterangan"></textarea>
+                              <div class="form-group cols-sm-6">
+                                <label>Alamat</label>
+                                <input type="text" name="alamat" class="form-control">
                               </div>
-                              <div class="form-group cols-sm-6 mb-3">
-                                <label>Status</label>
-                                <!-- <input type="text" name="jenis" class="form-control"> -->
-                                <select class="form-control" name="jenis">
-                                  <option value="makanan">Aktif</option>
-                                  <option value="minuman">Non Aktif</option>
-                                </select>
+                              <div class="form-group cols-sm-6">
+                                <label>Instagram</label>
+                                <input type="text" name="instagram" class="form-control">
+                                <font color="red">*pastikan berupa link</font>
                               </div>
-                              
+                              <div class="form-group cols-sm-6">
+                                <label>Facebook</label>
+                                <input type="text" name="facebook" class="form-control">
+                                <font color="red">*pastikan berupa link</font>
+                              </div>
+                              <div class="form-group cols-sm-6">
+                                <label>Tiktok</label>
+                                <input type="text" name="tiktok" class="form-control">
+                                <font color="red">*pastikan berupa link</font>
+                              </div>
                               <div class="form-group cols-sm-6 mb-3">
                                 <input type="submit" value="Simpan" class="btn btn-success">
                                 <input type="reset" value="batal" class="btn btn-danger">
@@ -95,7 +104,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <?php include 'components/footer.php'; ?>
+            <?php include '../components/footer.php'; ?>
             <!-- End of Footer -->
 
         </div>
@@ -129,7 +138,7 @@
         </div>
     </div>
 
-    <?php include 'layout/scripts-module.php'; ?>
+    <?php include '../layout/scripts-module.php'; ?>
 
 </body>
 

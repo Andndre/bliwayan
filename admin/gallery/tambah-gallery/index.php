@@ -5,7 +5,6 @@ if(!isset($_SESSION['user_id']))
     header('location:login/');
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,39 +34,31 @@ if(!isset($_SESSION['user_id']))
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Menu</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Gallery</h1>
                     </div>
 
                     
                     <div class="card shadow mb-4 mt-4">
                       <div class="card-header">
                           <i class="fas fa-box me-1"></i>
-                          Data Menu
+                          Data Gallery
                       </div>
                       <div class="card-body"> 
                           <div class="card-body" style="max-width: 600px;">
-                            <form action="/admin/service/menuTambah.php" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="proses/simpan_data_barang.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Unggah Foto</label>
-                                <input type="file" name="gambar" class="form-control" accept=".jpg, jpeg, .png, .gif">
+                                <input type="file" name="foto" class="form-control" accept=".jpg, jpeg, .png, .gif">
                                 <font color="red">*tipe yang bisa di upload adalah : .jpg, .jpeg, .png, .gift</font>
                               </div>
-                              <div class="form-group cols-sm-6 mb-3">
-                                <label>Nama Menu</label>
-                                <input type="text" name="name" class="form-control">
-                              </div>
+
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Jenis</label>
                                 <select class="form-control" name="jenis">
                                   <option value="" hidden></option>
-                                  <option value="makan">Makanan</option>
-                                  <option value="minuman">Minuman</option>
-                                  <option value="lainnya">Lainnya</option>
+                                  <option value="foto">Foto</option>
+                                  <option value="video">Video</option>
                                 </select>
-                              </div>
-                              <div class="form-group cols-sm-6">
-                                <label>Harga</label>
-                                <input type="text" name="harga" class="form-control">
                               </div>
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Keterangan</label>
@@ -76,9 +67,9 @@ if(!isset($_SESSION['user_id']))
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Status</label>
                                 <!-- <input type="text" name="jenis" class="form-control"> -->
-                                <select class="form-control" name="status">
-                                  <option value="1">Aktif</option>
-                                  <option value="0">Non Aktif</option>
+                                <select class="form-control" name="jenis">
+                                  <option value="makanan">Aktif</option>
+                                  <option value="minuman">Non Aktif</option>
                                 </select>
                               </div>
                               

@@ -1,9 +1,8 @@
 <?php 
     $current_page = $_SERVER['REQUEST_URI'];
-
 ?>
 
-<ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -33,15 +32,20 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Utilities</span></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="/admin/about.php">
-            <i class="fas fa-fw fa-wrench"></i>
+    <li class="nav-item <?php echo ($current_page == '/admin/about-settings' ? 'active' : '')?>">
+        <a class="nav-link" href="/admin/about-settings">
+            <i class="fas fa-fw fa-server"></i>
             <span>About Setting</span></a>
     </li>
     <li class="nav-item <?php echo ($current_page == '/admin/menu' ? 'active' : '')?>">
         <a class="nav-link" href="/admin/menu">
             <i class="fas fa-fw fa-egg"></i>
             <span>Menu</span></a>
+    </li>
+    <li class="nav-item <?php echo ($current_page == '/admin/gallery' ? 'active' : '')?>">
+        <a class="nav-link" href="/admin/gallery">
+            <i class="fas fa-fw fa-file"></i>
+            <span>gallery</span></a>
     </li>
     
 

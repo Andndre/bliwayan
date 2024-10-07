@@ -5,7 +5,6 @@ if(!isset($_SESSION['user_id']))
     header('location:login/');
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,73 +34,38 @@ if(!isset($_SESSION['user_id']))
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Menu</h1>
-                        <a href="/admin/menu/tambah-menu" class="btn btn-sm btn-info shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i> Tambah Menu</a>
+                        <h1 class="h3 mb-0 text-gray-800">Gallery</h1>
+                        <a href="/admin/gallery/tambah-gallery" class="btn btn-sm btn-info shadow-sm"><i
+                                class="fas fa-plus fa-sm text-white-50"></i> Tambah Gallery</a>
                     </div>
 
                     
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-info">Data Menu</h6>
+                            <h6 class="m-0 font-weight-bold text-info">Data Gallery</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Kategori</th>
-                                            <th>Harga</th>
                                             <th>Gambar</th>
+                                            <th>Nama</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php 
-                                    // Koneksi ke database
-                                    include '../service/config.php';
-
-                                    // Query untuk mengambil semua data dari tabel menus
-                                    $sql = "SELECT * FROM menus";
-                                    $result = $conn->query($sql);
-
-                                    if ($result->num_rows > 0) {
-                                        // Output data per baris
-                                        while ($row = $result->fetch_assoc()) {
-                                            echo "<tr>";
-                                            echo "<td>" . $row['name'] . "</td>";
-                                            echo "<td>" . $row['jenis'] . "</td>";
-                                            echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
-                                            echo "<td><img src='/admin/gambar/menus/" . $row['gambar'] . "' class='img-fluid rounded mx-auto d-block' width='200px'></td>";
-                                            echo "<td>
-                                                    <a href='/admin/menu/edit-menu/index.php?id=" . $row['id'] . "' class='btn btn-sm btn-info shadow-sm'><i class='fas fa-pen fa-sm text-white-50'></i> Edit Menu</a>
-                                                    <a href='/admin/service/menuHapus.php?id=" . $row['id'] . "' class='btn btn-sm btn-danger shadow-sm' onclick='return confirm(\"Apakah Anda yakin ingin menghapus menu ini?\");'>
-                                                        <i class='fas fa-trash fa-sm text-white-50'></i> Hapus Menu
-                                                    </a>
-                                                </td>";
-                                            echo "</tr>";
-                                        }
-                                    } else {
-                                        echo "<tr><td colspan='5'>Tidak ada menu yang tersedia</td></tr>";
-                                    }
-
-                                    // Tutup koneksi
-                                    $conn->close();
-                                    ?>
-                                        <!-- <tr>
-                                            <td>Telor Dadar</td>
-                                            <td>Makan</td>
-                                            <td>Rp 10000</td>
+                                        <tr>
                                             <td><img src="/images/illustrations/illustration-1.png" class="img-fluid rounded mx-auto d-block" width=200px ></td>
+                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus modi odio perspiciatis pariatur. Rerum optio cum perferendis repudiandae dolorum officia tenetur. Quasi laudantium cumque, neque quo odit repudiandae vel cum.</td>
                                             <td> 
                                                 <a href="#" class="btn btn-sm btn-info shadow-sm"><i
                                                 class="fas fa-pen fa-sm text-white-50"></i> Edit Menu</a>
                                                 <a href="#" class="btn btn-sm btn-danger shadow-sm"><i
                                                 class="fas fa-trash fa-sm text-white-50"></i> Hapus Menu</a>
                                             </td>
-                                        </tr> -->
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
