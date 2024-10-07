@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
-<?php include 'layout/head.php'; ?>
+<?php include_once 'layout/head.php'; ?>
 <body>
 <?php include 'components/navbar.php'; ?>
 <main>
@@ -8,14 +8,14 @@
 	<section style="background-image: url('images/bg-hero.png'); height: 100dvh; background-repeat: no-repeat; background-size: cover; background-position: center;">
 		<div class="container h-100">
 			<div class="d-flex flex-column gap-2 h-100 justify-content-center align-items-center text-center">
-				<h1 style="max-width: 400px;">Best food for your taste</h1>
-				<p style="max-width: 400px;">Come for the food, and experience with our friendly service.</p>
+				<h1 style="max-width: 600px;"><?= translate($lang, 'hero_heading') ?></h1>
+				<p style="max-width: 500px;"><?= translate($lang, 'hero_subheading') ?></p>
 				<div class="d-flex gap-2 justify-content-center">
 					<a href="/book-now" class="btn btn-primary">
-						Book a Table
+						<?= translate($lang, 'book_table') ?>
 					</a>
 					<a href="/menu" class="btn btn-outline-secondary">
-						Explore Menu
+						<?= translate($lang, 'explore_menu') ?>
 					</a>
 				</div>
 			</div>
