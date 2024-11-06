@@ -52,6 +52,7 @@ if(!isset($_SESSION['user_id']))
                                     <thead>
                                         <tr>
                                             <th>Nama</th>
+                                            <th>Name Enlish</th>
                                             <th>Kategori</th>
                                             <th>Harga</th>
                                             <th>Gambar</th>
@@ -72,12 +73,13 @@ if(!isset($_SESSION['user_id']))
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
                                             echo "<td>" . $row['name'] . "</td>";
+                                            echo "<td>" . $row['name_english'] . "</td>";
                                             echo "<td>" . $row['jenis'] . "</td>";
                                             echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
                                             echo "<td><img src='/admin/gambar/menus/" . $row['gambar'] . "' class='img-fluid rounded mx-auto d-block' width='200px'></td>";
                                             echo "<td>
                                                     <a href='/admin/menu/edit-menu/index.php?id=" . $row['id'] . "' class='btn btn-sm btn-info shadow-sm'><i class='fas fa-pen fa-sm text-white-50'></i> Edit Menu</a>
-                                                    <a href='/admin/service/menuHapus.php?id=" . $row['id'] . "' class='btn btn-sm btn-danger shadow-sm' onclick='return confirm(\"Apakah Anda yakin ingin menghapus menu ini?\");'>
+                                                    <a href='#' class='btn btn-sm btn-danger shadow-sm' onclick='confirmDelete(" . $row['id'] . ")'>
                                                         <i class='fas fa-trash fa-sm text-white-50'></i> Hapus Menu
                                                     </a>
                                                 </td>";
@@ -90,18 +92,6 @@ if(!isset($_SESSION['user_id']))
                                     // Tutup koneksi
                                     $conn->close();
                                     ?>
-                                        <!-- <tr>
-                                            <td>Telor Dadar</td>
-                                            <td>Makan</td>
-                                            <td>Rp 10000</td>
-                                            <td><img src="/images/illustrations/illustration-1.png" class="img-fluid rounded mx-auto d-block" width=200px ></td>
-                                            <td> 
-                                                <a href="#" class="btn btn-sm btn-info shadow-sm"><i
-                                                class="fas fa-pen fa-sm text-white-50"></i> Edit Menu</a>
-                                                <a href="#" class="btn btn-sm btn-danger shadow-sm"><i
-                                                class="fas fa-trash fa-sm text-white-50"></i> Hapus Menu</a>
-                                            </td>
-                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -150,6 +140,54 @@ if(!isset($_SESSION['user_id']))
     </div>
 
     <?php include '../layout/scripts-module.php'; ?>
+
+    <!-- SweetAlert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data menu ini akan dihapus!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/admin/service/menuHapus.php?id=' + id;
+                }
+            });
+        }
+    </script>
+    <script>
+        <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'suksesdihapus'): ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Menu berhasil dihapus!',
+                confirmButtonText: 'OK'
+            });
+        <?php 
+            unset($_SESSION['alert']); 
+        endif; 
+        ?>
+    </script>
+    <script>
+        <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'success'): ?>
+            // Tampilkan SweetAlert jika session status ada dan bernilai success
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Menu berhasil ditambahkan!',
+                confirmButtonText: 'OK'
+            });
+        <?php 
+            unset($_SESSION['alert']); // Hapus session status setelah digunakan
+        endif; 
+        ?>
+    </script>
 
 </body>
 

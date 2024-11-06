@@ -1,11 +1,14 @@
 <?php
+session_start();
 // Koneksi ke database
 include 'config.php';
 
     $name = $_POST['name'];
+    $name_english = $_POST['name_english'];
     $jenis = $_POST['jenis'];
     $harga = $_POST['harga'];
     $keterangan = $_POST['keterangan'];
+    $keterangan_english = $_POST['keterangan_english'];
     $status = $_POST['status'];
 
     // Proses upload gambar
@@ -44,13 +47,13 @@ include 'config.php';
     // Jika semua validasi lolos, simpan file
     if (move_uploaded_file($file_tmp, $target_file)) {
         // File berhasil diunggah, simpan informasi ke database
-        $sql = "INSERT INTO menus (gambar, name, jenis, harga, keterangan, status) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO menus (gambar, name, name_english, jenis, harga, keterangan, keterangan_english, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssss", $unique_file_name, $name, $jenis, $harga, $keterangan, $status);
-
+        $stmt->bind_param("ssssisss", $unique_file_name, $name, $name_english, $jenis, $harga, $keterangan, $keterangan_english, $status);
         // Eksekusi query
         if ($stmt->execute()) {
-            echo "Menu berhasil ditambahkan!";
+            $_SESSION['alert'] = 'success';
+            header('location:../menu');
         } else {
             echo "Terjadi kesalahan saat menyimpan data: " . $stmt->error;
         }

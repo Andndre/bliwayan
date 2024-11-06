@@ -57,6 +57,10 @@ if(!isset($_SESSION['user_id']))
                                 <input type="text" name="name" class="form-control">
                               </div>
                               <div class="form-group cols-sm-6 mb-3">
+                                <label>Nama English Menu</label>
+                                <input type="text" name="name_english" class="form-control">
+                              </div>
+                              <div class="form-group cols-sm-6 mb-3">
                                 <label>Jenis</label>
                                 <select class="form-control" name="jenis">
                                   <option value="" hidden></option>
@@ -72,6 +76,10 @@ if(!isset($_SESSION['user_id']))
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Keterangan</label>
                                 <textarea class="form-control" rows="7" name="keterangan"></textarea>
+                              </div>
+                              <div class="form-group cols-sm-6 mb-3">
+                                <label>Keterangan English</label>
+                                <textarea class="form-control" rows="7" name="keterangan_english"></textarea>
                               </div>
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Status</label>

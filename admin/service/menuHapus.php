@@ -12,14 +12,31 @@ $menu_id = $_GET['id'];
 
 // Cek apakah ID menu ada
 if(isset($menu_id)) {
-    // Query untuk menghapus data menu
+    // Ambil nama file gambar dari database sebelum menghapus data
+    $sql = "SELECT gambar FROM menus WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $menu_id);
+    $stmt->execute();
+    $stmt->bind_result($gambar);
+    $stmt->fetch();
+    $stmt->close();
+
+    // Hapus file gambar dari folder jika file gambar ada
+    if($gambar) {
+        $file_path = "../gambar/menus/" . $gambar;
+        if(file_exists($file_path)) {
+            unlink($file_path); // Menghapus file gambar
+        }
+    }
+
+    // Query untuk menghapus data menu dari database
     $sql = "DELETE FROM menus WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $menu_id);
     
     if($stmt->execute()) {
-        // Redirect setelah sukses menghapus
-        header('location:../menu/index.php?message=Menu berhasil dihapus');
+        $_SESSION['alert'] = 'suksesdihapus';
+        header('location:../menu');
     } else {
         echo "Gagal menghapus menu!";
     }
