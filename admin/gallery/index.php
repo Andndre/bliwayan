@@ -52,20 +52,41 @@ if(!isset($_SESSION['user_id']))
                                         <tr>
                                             <th>Gambar</th>
                                             <th>Nama</th>
+                                            <th>Jenis</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><img src="/images/illustrations/illustration-1.png" class="img-fluid rounded mx-auto d-block" width=200px ></td>
-                                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus modi odio perspiciatis pariatur. Rerum optio cum perferendis repudiandae dolorum officia tenetur. Quasi laudantium cumque, neque quo odit repudiandae vel cum.</td>
-                                            <td> 
-                                                <a href="#" class="btn btn-sm btn-info shadow-sm"><i
-                                                class="fas fa-pen fa-sm text-white-50"></i> Edit Menu</a>
-                                                <a href="#" class="btn btn-sm btn-danger shadow-sm"><i
-                                                class="fas fa-trash fa-sm text-white-50"></i> Hapus Menu</a>
-                                            </td>
-                                        </tr>
+                                    <?php 
+                                    // Koneksi ke database
+                                    include '../service/config.php';
+
+                                    // Query untuk mengambil semua data dari tabel menus
+                                    $sql = "SELECT * FROM gallerys";
+                                    $result = $conn->query($sql);
+
+                                    if ($result->num_rows > 0) {
+                                        // Output data per baris
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<td><img src='/admin/gambar/gallerys/" . $row['file'] . "' class='img-fluid rounded mx-auto d-block' width='200px'></td>";
+                                            echo "<td>" . $row['judul'] . "</td>";
+                                            echo "<td>" . $row['jenis'] . "</td>";
+                                            echo "<td>
+                                                    <a href='/admin/gallery/edit-gallery/index.php?id=" . $row['id'] . "' class='btn btn-sm btn-info shadow-sm'><i class='fas fa-pen fa-sm text-white-50'></i> Edit Menu</a>
+                                                    <a href='#' class='btn btn-sm btn-danger shadow-sm' onclick='confirmDelete(" . $row['id'] . ")'>
+                                                        <i class='fas fa-trash fa-sm text-white-50'></i> Hapus Menu
+                                                    </a>
+                                                </td>";
+                                            echo "</tr>";
+                                        }
+                                    } else {
+                                        echo "<tr><td colspan='5'>Tidak ada data yang tersedia</td></tr>";
+                                    }
+
+                                    // Tutup koneksi
+                                    $conn->close();
+                                    ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -114,6 +135,53 @@ if(!isset($_SESSION['user_id']))
     </div>
 
     <?php include '../layout/scripts-module.php'; ?>
+    <!-- SweetAlert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function confirmDelete(id) {
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Data gallery ini akan dihapus!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Hapus',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/admin/service/galleryHapus.php?id=' + id;
+                }
+            });
+        }
+    </script>
+    <script>
+        <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'suksesdihapus'): ?>
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Gallery berhasil dihapus!',
+                confirmButtonText: 'OK'
+            });
+        <?php 
+            unset($_SESSION['alert']); 
+        endif; 
+        ?>
+    </script>
+    <script>
+        <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'success'): ?>
+            // Tampilkan SweetAlert jika session status ada dan bernilai success
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Gallery berhasil ditambahkan!',
+                confirmButtonText: 'OK'
+            });
+        <?php 
+            unset($_SESSION['alert']); // Hapus session status setelah digunakan
+        endif; 
+        ?>
+    </script>
 
 </body>
 
