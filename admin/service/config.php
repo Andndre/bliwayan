@@ -1,8 +1,11 @@
 <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "bliwayan";
+  // baca .env
+  $_ENV = parse_ini_file('../../.env');
+
+  $servername = $_ENV['DB_HOST'];
+  $username = $_ENV['DB_USERNAME'];
+  $password = $_ENV['DB_PASSWORD'];
+  $dbname = $_ENV['DB_NAME'];
 
   // Buat koneksi
   $conn = new mysqli($servername, $username, $password, $dbname);

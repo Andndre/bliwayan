@@ -1,4 +1,20 @@
 <?php
+  $servername = $_ENV['DB_HOST'];
+  $username = $_ENV['DB_USERNAME'];
+  $password = $_ENV['DB_PASSWORD'];
+  $dbname = $_ENV['DB_NAME'];
+
+  // Buat koneksi
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  // Cek koneksi
+  if ($conn->connect_error) {
+      die("Koneksi gagal: " . $conn->connect_error);
+  }
+?>
+
+
+<?php
 session_start(); // Start the session
 
 // Array for translations
@@ -42,6 +58,11 @@ function translate($lang, $key) {
     } else {
         return $key;  // Fallback to key if translation is not available
     }
+}
+
+function text($en, $id) {
+  $lang = $_SESSION['lang'] ?? 'en';
+  return $lang === 'en' ? $en : $id;
 }
 
 // Set default language to English

@@ -1,3 +1,26 @@
+<?php
+    $id = 1;
+
+    // Ambil data menu berdasarkan ID dari database
+    $sql = "SELECT * FROM deskripsi WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Jika menu ditemukan
+    if ($result->num_rows > 0) {
+            $data = $result->fetch_assoc();
+    } else {
+            echo "Menu tidak ditemukan!";
+            exit;
+    }
+
+    // Tutup koneksi
+    $stmt->close();
+    $conn->close();
+?>
+
 <footer class="bg-dark text-white py-5">
     <div class="container">
         <div class="row">
@@ -25,9 +48,9 @@
             <div class="col-md-4">
                 <h4>Contact Us</h4>
                 <ul class="list-unstyled">
-                    <li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> Jl. Raya Bedugul, Batunya, Kec. Baturiti, Kabupaten Tabanan, Bali 82191</li>
-                    <li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> 0815-5848-0000</li>
-                    <li class="d-flex gap-2 align-items-start"><i data-feather="mail" class="icon-size"></i> <a href="mailto:bliwayan10@icloud.com" style="text-decoration: none; color: white;">bliwayan10@icloud.com</a></li>
+                    <li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> <?= $data["alamat"] ?></li>
+                    <li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> <?= $data["whatsapp"] ?></li>
+                    <li class="d-flex gap-2 align-items-start"><i data-feather="mail" class="icon-size"></i> <a href="mailto:<?= $data["email"] ?>" style="text-decoration: none; color: white;"><?= $data["email"] ?></a></li>
                 </ul>
             </div>
         </div>
