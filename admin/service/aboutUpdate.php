@@ -18,6 +18,11 @@ $judul_video = $_POST['judul_video'];
 $judul_kedua = $_POST['judul_kedua'];
 $deskripsi_kedua = $_POST['deskripsi_kedua'];
 $link_youtube = $_POST['link_youtube'];
+$judul_english = $_POST['judul_english'];
+$deskripsi_english = $_POST['deskripsi_english'];
+$judul_video_english = $_POST['judul_video_english'];
+$judul_kedua_english = $_POST['judul_kedua_english'];
+$deskripsi_kedua_english = $_POST['deskripsi_kedua_english'];
 
 // Ambil data lama dari database untuk mengecek gambar sebelumnya
 $query = "SELECT gambar_pertama, gambar_kedua, video FROM deskripsi WHERE id = ?";
@@ -30,7 +35,6 @@ $stmt_old->close();
 
 // Proses gambar pertama jika ada
 if (!empty($_FILES['gambar_pertama']['name'])) {
-    // Hapus gambar pertama sebelumnya
     if ($old_gambar_pertama && file_exists("../gambar/about/" . $old_gambar_pertama)) {
         unlink("../gambar/about/" . $old_gambar_pertama);
     }
@@ -39,13 +43,11 @@ if (!empty($_FILES['gambar_pertama']['name'])) {
     $gambar_pertama_path = "../gambar/about/" . basename($gambar_pertama);
     move_uploaded_file($gambar_pertama_tmp, $gambar_pertama_path);
 } else {
-    // Tidak mengganti gambar pertama
     $gambar_pertama = null;
 }
 
 // Proses gambar kedua jika ada
 if (!empty($_FILES['gambar_kedua']['name'])) {
-    // Hapus gambar kedua sebelumnya
     if ($old_gambar_kedua && file_exists("../gambar/about/" . $old_gambar_kedua)) {
         unlink("../gambar/about/" . $old_gambar_kedua);
     }
@@ -54,13 +56,11 @@ if (!empty($_FILES['gambar_kedua']['name'])) {
     $gambar_kedua_path = "../gambar/about/" . basename($gambar_kedua);
     move_uploaded_file($gambar_kedua_tmp, $gambar_kedua_path);
 } else {
-    // Tidak mengganti gambar kedua
     $gambar_kedua = null;
 }
 
 // Proses video jika ada
 if (!empty($_FILES['video']['name'])) {
-    // Hapus video sebelumnya
     if ($old_video && file_exists("../gambar/about/" . $old_video)) {
         unlink("../gambar/about/" . $old_video);
     }
@@ -69,7 +69,6 @@ if (!empty($_FILES['video']['name'])) {
     $video_path = "../gambar/about/" . basename($video);
     move_uploaded_file($video_tmp, $video_path);
 } else {
-    // Tidak mengganti video
     $video = null;
 }
 
@@ -83,47 +82,47 @@ $sql = "UPDATE deskripsi SET
         judul_video = ?, 
         judul_kedua = ?, 
         deskripsi_kedua = ?, 
-        link_youtube = ?";
+        link_youtube = ?, 
+        judul_english = ?, 
+        deskripsi_english = ?, 
+        judul_video_english = ?, 
+        judul_kedua_english = ?, 
+        deskripsi_kedua_english = ?";
 
 // Tambahkan update gambar dan video jika ada
+$types = "ssssssssssssss";
+$params = [$judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $judul_english, $deskripsi_english, $judul_video_english, $judul_kedua_english, $deskripsi_kedua_english];
+
 if ($gambar_pertama) {
     $sql .= ", gambar_pertama = ?";
+    $types .= "s";
+    $params[] = $gambar_pertama;
 }
 if ($gambar_kedua) {
     $sql .= ", gambar_kedua = ?";
+    $types .= "s";
+    $params[] = $gambar_kedua;
 }
 if ($video) {
     $sql .= ", video = ?";
+    $types .= "s";
+    $params[] = $video;
 }
 
 $sql .= " WHERE id = ?";
+$types .= "i";
+$params[] = $id;
 
 // Siapkan statement
 $stmt = $conn->prepare($sql);
 
-// Bind parameter berdasarkan apakah ada file baru yang diupload atau tidak
-if ($gambar_pertama && $gambar_kedua && $video) {
-    $stmt->bind_param("ssssssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $gambar_pertama, $gambar_kedua, $video, $id);
-} elseif ($gambar_pertama && $gambar_kedua) {
-    $stmt->bind_param("sssssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $gambar_pertama, $gambar_kedua, $id);
-} elseif ($gambar_pertama && $video) {
-    $stmt->bind_param("sssssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $gambar_pertama, $video, $id);
-} elseif ($gambar_kedua && $video) {
-    $stmt->bind_param("sssssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $gambar_kedua, $video, $id);
-} elseif ($gambar_pertama) {
-    $stmt->bind_param("ssssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $gambar_pertama, $id);
-} elseif ($gambar_kedua) {
-    $stmt->bind_param("ssssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $gambar_kedua, $id);
-} elseif ($video) {
-    $stmt->bind_param("ssssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $video, $id);
-} else {
-    $stmt->bind_param("sssssssssi", $judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $id);
-}
+// Bind parameter menggunakan referensi
+$stmt->bind_param($types, ...$params);
 
 // Eksekusi statement
 if ($stmt->execute()) {
-  $_SESSION['update_success'] = true;
-    header('Location: ../about-settings');
+    $_SESSION['alert'] = 'sukses';
+    header('location:../about-settings');
 } else {
     echo "Error: " . $stmt->error;
 }

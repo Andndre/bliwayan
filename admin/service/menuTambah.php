@@ -35,7 +35,10 @@ include 'config.php';
 
     // Cek ukuran file (misalnya maksimal 2MB)
     if ($_FILES["gambar"]["size"] > 2000000) {
-        die("Ukuran file terlalu besar (maksimal 2MB).");
+        $_SESSION['alert'] = 'gagal';
+        $conn->rollback();
+        header('location:../menu/tambah-menu');
+        exit;
     }
 
     // Batasi jenis file yang diperbolehkan (misalnya hanya jpg, png, jpeg, gif)
@@ -55,7 +58,8 @@ include 'config.php';
             $_SESSION['alert'] = 'success';
             header('location:../menu');
         } else {
-            echo "Terjadi kesalahan saat menyimpan data: " . $stmt->error;
+            $_SESSION['alert'] = 'gagal';
+            header('location:../menu/tambah-menu');
         }
 
         $stmt->close();

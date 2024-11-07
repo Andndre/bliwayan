@@ -49,16 +49,16 @@ if(!isset($_SESSION['user_id']))
                             <form action="/admin/service/menuTambah.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Unggah Foto</label>
-                                <input type="file" name="gambar" class="form-control" accept=".jpg, jpeg, .png, .gif">
+                                <input type="file" name="gambar" class="form-control" accept=".jpg, jpeg, .png, .gif" required>
                                 <font color="red">*tipe yang bisa di upload adalah : .jpg, .jpeg, .png, .gift</font>
                               </div>
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Nama Menu</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" required>
                               </div>
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Nama English Menu</label>
-                                <input type="text" name="name_english" class="form-control">
+                                <input type="text" name="name_english" class="form-control" required>
                               </div>
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Jenis</label>
@@ -71,7 +71,7 @@ if(!isset($_SESSION['user_id']))
                               </div>
                               <div class="form-group cols-sm-6">
                                 <label>Harga</label>
-                                <input type="text" name="harga" class="form-control">
+                                <input type="text" name="harga" class="form-control" required>
                               </div>
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Keterangan</label>
@@ -141,6 +141,23 @@ if(!isset($_SESSION['user_id']))
     </div>
 
     <?php include '../../layout/scripts-module.php'; ?>
+
+    <!-- SweetAlert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'gagal'): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: 'Terjadi kesalahan saat menyimpan data',
+            confirmButtonText: 'OK'
+        });
+      <?php 
+          unset($_SESSION['alert']); 
+      endif; 
+      ?>
+        
+    </script>
 
 </body>
 
