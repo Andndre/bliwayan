@@ -2,6 +2,9 @@
 <html lang="id">
 <?php include '../layout/head.php'; ?>
 <body>
+<?php 
+$_ENV = parse_ini_file('../.env');
+?>
 <?php include '../components/navbar.php'; ?>
 <header class="pt-5">
 	<div class="py-5 container">
