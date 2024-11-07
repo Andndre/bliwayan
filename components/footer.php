@@ -34,7 +34,7 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <h4>Pages</h4>
+                <h4><?= text('Navigation', 'Navigasi') ?></h4>
                 <nav>
                     <ul class="list-unstyled">
                         <li><a href="/" style="text-decoration: none; color: white;">Home</a></li>
@@ -46,7 +46,7 @@
                 </nav>
             </div>
             <div class="col-md-4">
-                <h4>Contact Us</h4>
+                <h4><?= text('Contact Us', 'Hubungi Kami') ?></h4>
                 <ul class="list-unstyled">
                     <li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> <?= $data["alamat"] ?></li>
                     <li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> <?= $data["whatsapp"] ?></li>

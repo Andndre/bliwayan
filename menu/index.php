@@ -2,7 +2,16 @@
 <html lang="id">
 <?php include '../layout/head.php'; ?>
 <body>
+<?php 
+$_ENV = parse_ini_file('../.env');
+?>
 <?php include '../components/navbar.php'; ?>
+<?php 
+	$sql = "SELECT * FROM menus";
+	$result = $conn->query($sql);
+
+	$menus = $result->fetch_all(MYSQLI_ASSOC);
+?>
 <main>
 	<header class="pt-5">
 		<div class="py-5 container">
@@ -11,88 +20,36 @@
 				<img style="height: 80px;" src="/images/gegep-coffe.png" alt="">
 			</div>
 			<div class="text-center pt-4">
-				<h1>Our Menu</h1>
-				<p style="max-width: 460px; margin: 0 auto">We consider all the drivers of change gives you the components you need to change to create a truly happens.</p>
+				<h1><?= text("Our Menu", "Menu Kami") ?></h1>
+				<p style="max-width: 460px; margin: 0 auto"><?= text("We consider all the drivers of change gives you the components you need to change to create a truly happens.", "Kami berusaha untuk memberikan menu yang terbaik untuk anda") ?></p>
 			</div>
 		</div>
 	</header>
-	<?php
-	// Ambil dari database
-	$menus = [
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 20.000',
-					'title' => 'Fried Eggs',
-					'description' => 'Made with eggs, lettuce, salt, oil and other ingredients.'
-			],
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 35.000',
-					'title' => 'Chicken Salad',
-					'description' => 'Grilled chicken, fresh veggies, and light dressing.'
-			],
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 50.000',
-					'title' => 'Steak & Fries',
-					'description' => 'Juicy steak served with golden fries.'
-			],
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 15.000',
-					'title' => 'Pancakes',
-					'description' => 'Fluffy pancakes served with syrup and butter.'
-			],
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 20.000',
-					'title' => 'Fried Eggs',
-					'description' => 'Made with eggs, lettuce, salt, oil and other ingredients.'
-			],
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 35.000',
-					'title' => 'Chicken Salad',
-					'description' => 'Grilled chicken, fresh veggies, and light dressing.'
-			],
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 50.000',
-					'title' => 'Steak & Fries',
-					'description' => 'Juicy steak served with golden fries.'
-			],
-			(object)[
-					'image' => '/images/illustrations/sample-menu.png',
-					'price' => 'Rp 15.000',
-					'title' => 'Pancakes',
-					'description' => 'Fluffy pancakes served with syrup and butter.'
-			]
-	];
-	?>
 
 	<section id="menus" class="container py-5">
 			<div class="row">
 					<?php foreach ($menus as $menu) : ?>
 							<div class="col-12 col-md-6 col-lg-4 col-xl-3 mt-3">
 									<div class="card menu" style="overflow: hidden;">
-											<img src="<?= $menu->image ?>" class="card-img-top" alt="menu image">
+											<img src="/admin/gambar/menus/<?= $menu['gambar'] ?>" class="card-img-top" alt="menu image">
 											<div class="card-body">
-													<h5 class="card-title menu"><?= $menu->price ?></h5>
-													<p><strong class="card-text menu"><?= $menu->title ?></strong></p>
-													<p><?= $menu->description ?></p>
+													<h5 class="card-title menu"><?= $menu['name'] ?></h5>
+													<p><strong class="card-text menu"><?= $menu['harga'] ?></strong></p>
+													<p><?= $menu['keterangan'] ?></p>
 											</div>
 									</div>
 							</div>
 					<?php endforeach; ?>
 			</div>
-			<div class="row text-center pt-5">
+			<!-- <div class="row text-center pt-5">
 				<div class="col-12">
-					<button class="btn btn-outline-secondary">View More Menu</button>
+					<button class="btn btn-outline-secondary"><?= text("See More", "Lihat Lebih Banyak") ?></button>
 				</div>
-			</div>
+			</div> -->
 	</section>
 </main>
 <?php include '../components/footer.php'; ?>
 <?php include '../layout/scripts.php'; ?>
 </body>
 </html>
+
