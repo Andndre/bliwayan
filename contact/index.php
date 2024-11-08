@@ -9,8 +9,8 @@ $_ENV = parse_ini_file('../.env');
 <header class="pt-5">
 	<div class="py-5 container">
 		<div class="text-center pt-5">
-			<h1>Contact Us</h1>
-			<p style="max-width: 460px; margin: 0 auto">We consider all the drivers of change gives you the components you need to change to create a truly happens.</p>
+			<h1><?= text("Contact Us", "Hubungi Kami") ?></h1>
+			<p style="max-width: 460px; margin: 0 auto"><?= text("We consider all the drivers of change gives you the components you need to change to create a truly happens.", "Kami berusaha untuk memberikan menu yang terbaik untuk Anda") ?></p>
 		</div>
 	</div>
 </header>
@@ -26,26 +26,26 @@ $_ENV = parse_ini_file('../.env');
 						<form action="mailto:bliwayan10@icloud.com" method="POST">
 							<div class="d-flex flex-wrap mb-3">
 								<div class="me-3 flex-grow-1">
-									<label for="name" class="form-label">Name</label>
+									<label for="name" class="form-label"><?= text("Name", "Nama") ?></label>
 									<input type="text" class="form-control" id="name" name="name">
 								</div>
 								<div class="flex-grow-1">
-									<label for="email" class="form-label">Email</label>
+									<label for="email" class="form-label"><?= text("Email", "Email") ?></label>
 									<input type="email" class="form-control" id="email" name="email">
 								</div>
 							</div>
 							<!-- subject -->
 							<div class="mb-3">
-								<label for="subject" class="form-label">Subject</label>
+								<label for="subject" class="form-label"><?= text("Subject", "Subyek") ?></label>
 								<input type="text" class="form-control" id="subject" name="subject">
 							</div>
 							<!-- message in textarea -->
 							<div class="mb-3">
-								<label for="message" class="form-label">Message</label>
+								<label for="message" class="form-label"><?= text("Message", "Pesan") ?></label>
 								<textarea class="form-control" id="message" rows="3" name="message"></textarea>
 							</div>
 							<!-- submit button primary -->
-							<button  type="submit" class="btn btn-primary w-100">Send</button>
+							<button  type="submit" class="btn btn-primary w-100"><?= text("Send", "Kirim") ?></button>
 						</form>
 					</div>
 				</div>
@@ -57,3 +57,4 @@ $_ENV = parse_ini_file('../.env');
 <?php include '../layout/scripts.php'; ?>
 </body>
 </html>
+

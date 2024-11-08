@@ -47,8 +47,8 @@ if(!isset($_SESSION['user_id']))
                           <div class="card-body" style="max-width: 600px;">
                             <form action="/admin/service/galleryTambah.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                               <div class="form-group cols-sm-6 mb-3">
-                                <label>Unggah Foto</label>
-                                <input type="file" name="gambar" class="form-control" accept=".jpg, jpeg, .png, .gif">
+                                <label>Unggah Foto / Video</label>
+                                <input type="file" name="gambar" class="form-control" accept=".jpg, jpeg, .png, .gif, .mp4, .webm, .wav">
                                 <font color="red">*tipe yang bisa di upload adalah : .jpg, .jpeg, .png, .gift</font>
                               </div>
                               <div class="form-group cols-sm-6 mb-3">

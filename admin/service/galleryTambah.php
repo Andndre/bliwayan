@@ -24,24 +24,18 @@ include 'config.php';
     $unique_file_name = uniqid() . '.' . $file_ext;
     $target_file = $target_dir . $unique_file_name;
 
-    // Cek apakah file yang diunggah adalah gambar
-    $check = getimagesize($file_tmp);
-    if ($check === false) {
-        die("File bukan gambar.");
+    // Cek apakah file yang diunggah adalah gambar atau video
+    $allowed_ext = array("jpg", "jpeg", "png", "gif", "mp4", "webm", "ogg");
+    if (!in_array($file_ext, $allowed_ext)) {
+        die("Hanya format JPG, JPEG, PNG, GIF, MP4, WebM, OGG yang diperbolehkan.");
     }
 
-    // Cek ukuran file (misalnya maksimal 2MB)
-    if ($_FILES["gambar"]["size"] > 2000000) {
+    // Cek ukuran file (misalnya maksimal 3MB)
+    if ($_FILES["gambar"]["size"] > 3000000) {
         $_SESSION['alert'] = 'gagal';
         $conn->rollback();
-        header('location:../menu/tambah-gallery');
+        die("Ukuran file terlalu besar. Maksimal 2MB.");
         exit;
-    }
-
-    // Batasi jenis file yang diperbolehkan (misalnya hanya jpg, png, jpeg, gif)
-    $allowed_ext = array("jpg", "jpeg", "png", "gif");
-    if (!in_array($file_ext, $allowed_ext)) {
-        die("Hanya format JPG, JPEG, PNG, dan GIF yang diperbolehkan.");
     }
 
     // Jika semua validasi lolos, simpan file
@@ -56,7 +50,7 @@ include 'config.php';
             header('location:../gallery');
         } else {
             $_SESSION['alert'] = 'gagal';
-            header('location:../menu/tambah-gallery');
+            header('location:../gallery/tambah-gallery');
         }
 
         $stmt->close();
@@ -68,3 +62,4 @@ include 'config.php';
     $conn->close();
 
 ?>
+

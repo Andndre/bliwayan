@@ -12,6 +12,7 @@ $_ENV = parse_ini_file('../.env');
 
 	$menus = $result->fetch_all(MYSQLI_ASSOC);
 ?>
+
 <main>
 	<header class="pt-5">
 		<div class="py-5 container">
@@ -33,9 +34,9 @@ $_ENV = parse_ini_file('../.env');
 									<div class="card menu" style="overflow: hidden;">
 											<img src="/admin/gambar/menus/<?= $menu['gambar'] ?>" class="card-img-top" alt="menu image">
 											<div class="card-body">
-													<h5 class="card-title menu"><?= $menu['name'] ?></h5>
-													<p><strong class="card-text menu"><?= $menu['harga'] ?></strong></p>
-													<p><?= $menu['keterangan'] ?></p>
+													<h5 class="card-title menu"><?= text($menu['name_english'], $menu['name']) ?></h5>
+													<p><strong class="card-text menu">Rp <?= number_format($menu['harga'], 0, ',', '.') ?></strong></p>
+													<p><?= text($menu['keterangan_english'], $menu['keterangan']) ?></p>
 											</div>
 									</div>
 							</div>

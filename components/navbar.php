@@ -17,49 +17,6 @@
 <?php
 session_start(); // Start the session
 
-// Array for translations
-$translations = [
-    'en' => [
-        'home' => 'Home',
-        'about' => 'About',
-        'menu' => 'Menu',
-        'gallery' => 'Gallery',
-        'contact' => 'Contact',
-        'language' => 'Language',
-        'book_table' => 'Book a Table',
-        'explore_menu' => 'Explore Menu',
-        'hero_heading' => 'Best food for your taste',
-        'hero_subheading' => 'Come for the food, and experience with our friendly service',
-      ],
-      'id' => [
-        'home' => 'Beranda',
-        'about' => 'Tentang Kami',
-        'menu' => 'Menu',
-        'gallery' => 'Galeri',
-        'contact' => 'Kontak',
-        'language' => 'Bahasa',
-        'book_table' => 'Pesan Meja',
-        'explore_menu' => 'Lihat Menu',
-        'hero_heading' => 'Makanan terbaik sesuai selera Anda',
-        'hero_subheading' => 'Datanglah untuk mencicipi makanannya, dan rasakan pengalaman dengan layanan kami yang ramah',
-    ]
-];
-
-/**
- * Function to get translated text based on language and key
- * @param string $lang Language code (e.g., 'en' or 'id')
- * @param string $key Key for the translation (e.g., 'home', 'about')
- * @return string
- */
-function translate($lang, $key) {
-    global $translations;
-    if (isset($translations[$lang][$key])) {
-        return $translations[$lang][$key];
-    } else {
-        return $key;  // Fallback to key if translation is not available
-    }
-}
-
 function text($en, $id) {
   $lang = $_SESSION['lang'] ?? 'en';
   return $lang === 'en' ? $en : $id;
