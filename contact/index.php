@@ -23,7 +23,7 @@ $_ENV = parse_ini_file('../.env');
 			<div class="col-12 col-md-6 pt-5">
 				<div class="card shadow">
 					<div class="card-body">
-						<form action="mailto:bliwayan10@icloud.com" method="POST">
+						<form id="contactForm" action="/admin/service/sendUserMessage.php" method="POST">
 							<div class="d-flex flex-wrap mb-3">
 								<div class="me-3 flex-grow-1">
 									<label for="name" class="form-label"><?= text("Name", "Nama") ?></label>
@@ -55,6 +55,32 @@ $_ENV = parse_ini_file('../.env');
 </main>
 <?php include '../components/footer.php'; ?>
 <?php include '../layout/scripts.php'; ?>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+	// check alert in session
+	
+	<?php if (isset($_SESSION['alert'])): ?>
+		<?php if ($_SESSION['alert'] == 'success'): ?>
+			Swal.fire({
+				title: '<?= text("Message Sent", "Pesan Terkirim") ?>',
+				text: '<?= text("Thank you for contacting us. We will reply to your message as soon as possible.", "Terima kasih telah menghubungi kami. Kami akan membalas pesan Anda secepat mungkin.") ?>',
+				icon: 'success',
+				allowOutsideClick: false,
+				showConfirmButton: false,
+				timer: 3000,
+			});
+		<?php else: ?>
+			Swal.fire({
+				title: '<?= text("Failed to Send Message", "Gagal Mengirim Pesan") ?>',
+				text: '<?= text("Sorry, we are unable to send your message. Please try again later.", "Maaf, kami tidak dapat mengirim pesan Anda. Silakan coba lagi nanti.") ?>',
+				icon: 'error',
+				allowOutsideClick: false,
+				showConfirmButton: false,
+				timer: 3000,
+			});
+		<?php endif; ?>
+	<?php endif; ?>
+</script>
 </body>
 </html>
-

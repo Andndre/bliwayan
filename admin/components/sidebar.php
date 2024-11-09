@@ -47,7 +47,11 @@
             <i class="fas fa-fw fa-file"></i>
             <span>gallery</span></a>
     </li>
-    
+    <li class="nav-item <?php echo ($current_page == '/admin/user-messages' ? 'active' : '')?>">
+        <a class="nav-link" href="/admin/user-messages">
+            <i class="fas fa-fw fa-envelope"></i>
+            <span>User Messages</span></a>
+    </li>
 
 
     <!-- Nav Item - Utilities Collapse Menu -->
