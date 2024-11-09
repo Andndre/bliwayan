@@ -6,6 +6,29 @@
 $_ENV = parse_ini_file('../.env');
 ?>
 <?php include '../components/navbar.php'; ?>
+<?php
+		$id = 1;
+
+		// Ambil data menu berdasarkan ID dari database
+		$sql = "SELECT * FROM deskripsi WHERE id = ?";
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		// Jika menu ditemukan
+		if ($result->num_rows > 0) {
+				$data = $result->fetch_assoc();
+				$whatsapp = $data['whatsapp']; // 0819-9957-2163
+				// turn it into a link: https://wa.me/628199972163
+				$removeHyphens = str_replace('-', '', $whatsapp);
+				$leading62AndRemoveLeading0 = '62' . substr($removeHyphens, 1);
+				$whatsappLink = 'https://wa.me/' . $leading62AndRemoveLeading0;
+		} else {
+				echo "Menu tidak ditemukan!";
+				exit;
+		}
+	?>
 <header class="pt-5 bg-light">
 	<div class="py-5 container">
 		<div class="text-center pt-5">
@@ -16,7 +39,7 @@ $_ENV = parse_ini_file('../.env');
 </header>
 <main>
 	<section class="bg-light d-flex justify-content-center py-5 align-items-center">
-		<button class="btn btn-primary mb-5">Booking Now</button>
+		<a href="<?= $whatsappLink ?>" class="btn btn-primary mb-5">Booking Now</a>
 	</section>
 	<section class="pt-5">
 		<div class="container py-5 d-flex flex-column gap-3">
