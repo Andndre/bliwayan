@@ -80,6 +80,7 @@ $_ENV = parse_ini_file('../.env');
 				timer: 3000,
 			});
 		<?php endif; ?>
+		<?php unset($_SESSION['alert']); ?>
 	<?php endif; ?>
 </script>
 </body>

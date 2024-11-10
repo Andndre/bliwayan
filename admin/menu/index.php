@@ -1,4 +1,5 @@
 <?php 
+$_ENV = parse_ini_file('../../.env');
 session_start();
 if(!isset($_SESSION['user_id']))
 {

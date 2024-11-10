@@ -1,4 +1,5 @@
 <?php
+$_ENV = parse_ini_file('../../.env');
 session_start();
 // Koneksi ke database
 include 'config.php';

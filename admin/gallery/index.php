@@ -1,4 +1,5 @@
 <?php 
+$_ENV = parse_ini_file('../../.env');
 session_start();
 if(!isset($_SESSION['user_id']))
 {
@@ -69,7 +70,14 @@ if(!isset($_SESSION['user_id']))
                                         // Output data per baris
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
-                                            echo "<td><img src='/admin/gambar/gallerys/" . $row['file'] . "' class='img-fluid rounded mx-auto d-block' width='200px'></td>";
+                                            if ($row['jenis'] == 'foto') {
+                                                echo "<td><img src='/admin/gambar/gallerys/" . $row['file'] . "' class='img-fluid rounded mx-auto d-block' width='200px'></td>";
+                                            } else {
+                                                echo "<td><video controls class='img-fluid rounded mx-auto d-block' width='200px'>
+                                                        <source src='/admin/gambar/gallerys/" . $row['file'] . "' type='video/mp4'>
+                                                        Your browser does not support the video tag.
+                                                      </video></td>";
+                                            }
                                             echo "<td>" . $row['judul'] . "</td>";
                                             echo "<td>" . $row['jenis'] . "</td>";
                                             echo "<td>

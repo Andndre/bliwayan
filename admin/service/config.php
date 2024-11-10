@@ -1,7 +1,5 @@
 <?php
   // baca .env
-  $_ENV = parse_ini_file('../../.env');
-
   $servername = $_ENV['DB_HOST'];
   $username = $_ENV['DB_USERNAME'];
   $password = $_ENV['DB_PASSWORD'];
