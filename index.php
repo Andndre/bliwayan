@@ -6,6 +6,24 @@
 $_ENV = parse_ini_file('.env');
 ?>
 <?php include 'components/navbar.php'; ?>
+<?php
+		$id = 1;
+
+		// Ambil data menu berdasarkan ID dari database
+		$sql = "SELECT * FROM deskripsi WHERE id = ?";
+		$stmt = $conn->prepare($sql);
+		$stmt->bind_param("i", $id);
+		$stmt->execute();
+		$result = $stmt->get_result();
+
+		// Jika menu ditemukan
+		if ($result->num_rows > 0) {
+				$data = $result->fetch_assoc();
+		} else {
+				echo "Menu tidak ditemukan!";
+				exit;
+		}
+?>
 <main>
 	<!-- Hero - Start -->
 	<section style="background-image: url('images/bg-hero.png'); height: 100dvh; background-repeat: no-repeat; background-size: cover; background-position: center;">
@@ -79,14 +97,14 @@ $_ENV = parse_ini_file('.env');
 				<div class="pt-5"></div>
 				<div class="row">	
 					<div class="col-12 col-lg-6" style="position: relative;">
-						<img class="img-fluid" style="width: 80%;" src="/images/illustrations/illustration-1.png" alt="illustration">
+						<img class="img-fluid" style="width: 80%;" src="/admin/gambar/about/<?=$data['gambar_pertama']?>" alt="illustration">
 						<div class="card card-dark" style="position: absolute; bottom: 0; right: 1rem;">
 							<div class="card-body w-100" style="max-width: 300px;">
 								<h3><?= text("Come and visit us", "Datang dan kunjungi kami") ?></h3>
 								<ul class="list-unstyled">
-									<li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> 0815-5848-0000</li>
-									<li class="d-flex gap-2 align-items-start"><i data-feather="mail" class="icon-size"></i> <a href="mailto:bliwayan10@icloud.com" style="text-decoration: none; color: white;"><?= text("bliwayan10@icloud.com", "bliwayan10@icloud.com") ?></a></li>
-									<li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> <?= text("Jl. Raya Bedugul, Batunya, Kec. Baturiti, Kabupaten Tabanan, Bali 82191", "Jl. Raya Bedugul, Batunya, Kec. Baturiti, Kabupaten Tabanan, Bali 82191") ?></li>
+									<li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> <?= $data["whatsapp"] ?></li>
+									<li class="d-flex gap-2 align-items-start"><i data-feather="mail" class="icon-size"></i> <a href="mailto:<?= $data["email"] ?>" style="text-decoration: none; color: white;"><?= $data["email"] ?></a></li>
+									<li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> <?= $data["alamat"] ?></li>
                 </ul>
 							</div>
 						</div>

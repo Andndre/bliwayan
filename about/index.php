@@ -33,7 +33,7 @@ $_ENV = parse_ini_file('../.env');
 			<div class="pt-5"></div>
 			<div class="row">	
 				<div class="col-12 col-lg-6" style="position: relative;">
-					<img class="img-fluid" style="width: 80%;" src="/images/illustrations/illustration-1.png" alt="illustration">
+					<img class="img-fluid" style="width: 80%;" src="/admin/gambar/about/<?=$data['gambar_pertama']?>" alt="illustration">
 					<div class="card card-dark" style="position: absolute; bottom: 0; right: 1rem;">
 						<div class="card-body w-100" style="max-width: 300px;">
 							<h3><?= text("Come and visit us", "Datang dan kunjungi kami") ?></h3>
@@ -54,7 +54,7 @@ $_ENV = parse_ini_file('../.env');
 	</section>
 	<!-- We provide healthy food for your family - End -->
 	<section style="position: relative;">
-		<video id="video-profile" src="/images/video-sample.mp4" class="img-fluid" style="width: 100%; object-fit: cover; aspect-ratio: 2/1;"></video>
+		<video id="video-profile" src="/admin/gambar/about/<?=$data['video']?>" class="img-fluid" style="width: 100%; object-fit: cover; aspect-ratio: 2/1;"></video>
 		<!-- overlay black with text in the center -->
 		<div id="overlay-video" class="d-flex justify-content-center align-items-center flex-column" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; gap: 1rem">
 			<!-- play button -->
@@ -167,7 +167,7 @@ $_ENV = parse_ini_file('../.env');
 					<p class="pt-3" style="max-width: 560px;"><?php echo text($data['deskripsi_kedua'], $data['deskripsi_kedua_english']); ?></p>
 				</div>
 				<div class="col-12 col-lg-5">
-					<img class="img-fluid" src="/images/history.png" alt="illustration">
+					<img class="img-fluid" src="/admin/gambar/about/<?=$data['gambar_kedua'] ?>" alt="illustration">
 				</div>
 			</div>
 		</div>
