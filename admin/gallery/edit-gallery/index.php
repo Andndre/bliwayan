@@ -69,7 +69,28 @@ $conn->close();
                           <div class="card-body" style="max-width: 600px;">
                             <form action="/admin/service/galleryUpdate.php" method="post" class="form-horizontal" enctype="multipart/form-data">
                               <input type="hidden" name="id" value="<?php echo $menu['id']; ?>">
-                              <img id="preview-image" src="/admin/gambar/gallerys/<?php echo $menu['file']; ?>" class="img-fluid rounded mx-auto d-block" width="200px">
+                              <?php 
+                              if ($menu['jenis'] == 'foto') {
+                              ?>
+                              <!-- Preview Gambar -->
+                              <img id="preview-image" src="/admin/gambar/gallerys/<?php echo $menu['file']; ?>" 
+                                  class="img-fluid rounded mx-auto d-block" 
+                                  style="display: <?php echo (strpos($menu['file'], '.mp4') === false ? 'block' : 'none'); ?>;" 
+                                  width="200px">
+                              <?php 
+                              }
+                              if ($menu['jenis'] == 'video') {
+                              ?>
+                              <!-- Preview Video -->
+                              <video id="preview-video" class="img-fluid rounded mx-auto d-block" 
+                                    style="display: <?php echo (strpos($menu['file'], '.mp4') !== false ? 'block' : 'none'); ?>;" 
+                                    width="200px" controls>
+                                  <source src="/admin/gambar/gallerys/<?php echo $menu['file']; ?>" type="video/mp4">
+                                  Browser Anda tidak mendukung tag video.
+                              </video>
+                              <?php 
+                              }
+                              ?>
                               <div class="form-group cols-sm-6 mb-3">
                                 <label>Unggah Foto</label>
                                 <input type="file" name="gambar" class="form-control" accept=".jpg, jpeg, .png, .gif"  onchange="previewImage(event)">
@@ -153,13 +174,39 @@ $conn->close();
     <?php include '../../layout/scripts-module.php'; ?>
     <!-- JavaScript untuk menampilkan preview gambar -->
     <script>
-      function previewImage(event) {
-          const reader = new FileReader();
-          reader.onload = function() {
-              const output = document.getElementById('preview-image');
-              output.src = reader.result;
-          };
-          reader.readAsDataURL(event.target.files[0]);
+      function previewFile(event) {
+        const file = event.target.files[0]; // File yang dipilih
+        const previewImage = document.getElementById('preview-image');
+        const previewVideo = document.getElementById('preview-video');
+
+        // Reset tampilan sebelumnya
+        previewImage.style.display = 'none';
+        previewVideo.style.display = 'none';
+
+        if (file) {
+            const fileType = file.type;
+
+            if (fileType.startsWith('image/')) {
+                // Jika file adalah gambar
+                const reader = new FileReader();
+                reader.onload = function() {
+                    previewImage.src = reader.result;
+                    previewImage.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else if (fileType.startsWith('video/')) {
+                // Jika file adalah video
+                const reader = new FileReader();
+                reader.onload = function() {
+                    previewVideo.src = reader.result;
+                    previewVideo.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                // Jika file bukan gambar atau video
+                alert('File yang dipilih bukan gambar atau video!');
+            }
+        }
       }
     </script>
     <!-- SweetAlert script -->
