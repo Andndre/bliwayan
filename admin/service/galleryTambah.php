@@ -32,10 +32,10 @@ include 'config.php';
     }
 
     // Cek ukuran file (misalnya maksimal 3MB)
-    if ($_FILES["gambar"]["size"] > 3000000) {
-        $_SESSION['alert'] = 'gagal';
+    if ($_FILES["gambar"]["size"] > 10000000) {
+        $_SESSION['alert'] = 'oversize';
         $conn->rollback();
-        die("Ukuran file terlalu besar. Maksimal 2MB.");
+        header('location:../gallery/tambah-gallery');
         exit;
     }
 

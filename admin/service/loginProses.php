@@ -1,15 +1,17 @@
 <?php
 $_ENV = parse_ini_file('../../.env');
 session_start();
-include 'config.php'; 
+include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Validasi input (pastikan tidak kosong)
+    // Validasi input kosong
     if (empty($email) || empty($password)) {
-        die('Email dan password wajib diisi.');
+        $_SESSION['error'] = 'Email dan password wajib diisi.';
+        header('Location: ../');
+        exit();
     }
 
     // Cek apakah email ada di database
@@ -33,10 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: ../');
             exit();
         } else {
-            echo 'Password salah!';
+            $_SESSION['error'] = 'Password salah.';
         }
     } else {
-        echo 'Email tidak ditemukan!';
+        $_SESSION['error'] = 'Email tidak ditemukan.';
     }
+    header('Location: ../');
+    exit();
 }
 ?>

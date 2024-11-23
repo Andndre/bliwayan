@@ -61,14 +61,13 @@ $conn->close();
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Menu</h1>
+                        <h1 class="h3 mb-0 text-gray-800">About</h1>
                     </div>
 
                     
                     <div class="card shadow mb-4 mt-4">
                       <div class="card-header">
-                          <i class="fas fa-box me-1"></i>
-                          Data Menu
+                        <h6 class="m-0 font-weight-bold text-info">Data About</h6>
                       </div>
                       <div class="card-body"> 
                           <div class="card-body" style="max-width: 600px;">
@@ -183,15 +182,15 @@ $conn->close();
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Keluar dari Aplikasi?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih "Keluar" di bawah jika Anda yakin ingin mengakhiri sesi saat ini.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <button class="btn btn-info" type="button" data-dismiss="modal">Batal</button>
+                    <a class="btn btn-danger" href="/admin/service/logout.php">Keluar</a>
                 </div>
             </div>
         </div>

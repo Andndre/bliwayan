@@ -129,6 +129,37 @@ if(!isset($_SESSION['user_id']))
 
     <?php include '../../layout/scripts-module.php'; ?>
 
+    <!-- SweetAlert script -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'gagal'): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: 'Terjadi kesalahan saat menyimpan data',
+            confirmButtonText: 'OK'
+        });
+      <?php 
+          unset($_SESSION['alert']); 
+      endif; 
+      ?>
+        
+    </script>
+    <script>
+      <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'oversize'): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: 'Terjadi kesalahan saat menyimpan, file terlalu besar',
+            confirmButtonText: 'OK'
+        });
+      <?php 
+          unset($_SESSION['alert']); 
+      endif; 
+      ?>
+        
+    </script>
+
 </body>
 
 </html>
