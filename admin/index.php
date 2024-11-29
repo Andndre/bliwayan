@@ -3,7 +3,7 @@ $_ENV = parse_ini_file('../.env');
 session_start();
 if(!isset($_SESSION['user_id']))
 {
-    header('location:login/');
+    header('location:/login/');
 }
 include 'service/config.php'; 
 $query = "SELECT COUNT(*) AS total FROM menus";
