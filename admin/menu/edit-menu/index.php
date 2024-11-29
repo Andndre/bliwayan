@@ -115,8 +115,8 @@ $conn->close();
                                     </select>
                                     </div>
                                     
-                                    <button type="submit" class="btn btn-info">Simpan Perubahan</button>
-                                    <a href="menu.php" class="btn btn-secondary">Batal</a>
+                                    <button type="submit" class="btn btn-info">Simpan</button>
+                                    <a href="menu.php" class="btn btn-danger">Batal</a>
                                 </form>
                                 </div>
                             </div>

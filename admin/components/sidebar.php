@@ -2,11 +2,15 @@
     $current_page = $_SERVER['REQUEST_URI'];
 ?>
 
-<ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-text mx-3">BliWayan</div>
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/">
+        <!-- <div class="sidebar-brand-text mx-3">BliWayan</div> -->
+        <div class="sidebar-brand-icon">
+            <!-- Tambahkan logo di sini -->
+            <img src="/images/logo-bw.png" style="height: 50px;">
+        </div>
     </a>
 
     <!-- Divider -->
@@ -24,9 +28,9 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    <!-- <div class="sidebar-heading">
         Interface
-    </div>
+    </div> -->
     <li class="nav-item <?php echo (str_starts_with($current_page, '/admin/about-settings') ? 'active' : '')?>">
         <a class="nav-link" href="/admin/about-settings">
             <i class="fas fa-fw fa-server"></i>

@@ -37,8 +37,11 @@ if(!isset($_SESSION['user_id']))
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Menu</h1>
-                        <a href="/admin/menu/tambah-menu" class="btn btn-sm btn-info shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i> Tambah Menu</a>
+                        <div>
+                        <a href="#" data-toggle="modal" data-target="#inputModal" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-pen fa-sm text-white-50"></i> Buku Menu</a>
+                        <a href="/admin/menu/tambah-menu" class="btn btn-sm btn-info shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah Menu</a>
+                        </div>
+                        
                     </div>
 
                     
@@ -52,11 +55,11 @@ if(!isset($_SESSION['user_id']))
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Gambar</th>
                                             <th>Nama</th>
-                                            <th>Name Enlish</th>
+                                            <th>Name English</th>
                                             <th>Kategori</th>
                                             <th>Harga</th>
-                                            <th>Gambar</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -73,15 +76,15 @@ if(!isset($_SESSION['user_id']))
                                         // Output data per baris
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
+                                            echo "<td><img src='/admin/gambar/menus/" . $row['gambar'] . "' class='img-fluid rounded mx-auto d-block' width='200px'></td>";
                                             echo "<td>" . $row['name'] . "</td>";
                                             echo "<td>" . $row['name_english'] . "</td>";
                                             echo "<td>" . $row['jenis'] . "</td>";
                                             echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
-                                            echo "<td><img src='/admin/gambar/menus/" . $row['gambar'] . "' class='img-fluid rounded mx-auto d-block' width='200px'></td>";
                                             echo "<td>
-                                                    <a href='/admin/menu/edit-menu/index.php?id=" . $row['id'] . "' class='btn btn-sm btn-info shadow-sm'><i class='fas fa-pen fa-sm text-white-50'></i> Edit Menu</a>
+                                                    <a href='/admin/menu/edit-menu/index.php?id=" . $row['id'] . "' class='btn btn-sm btn-info shadow-sm'><i class='fas fa-pen fa-sm text-white-50'></i> Edit</a>
                                                     <a href='#' class='btn btn-sm btn-danger shadow-sm' onclick='confirmDelete(" . $row['id'] . ")'>
-                                                        <i class='fas fa-trash fa-sm text-white-50'></i> Hapus Menu
+                                                        <i class='fas fa-trash fa-sm text-white-50'></i> Hapus
                                                     </a>
                                                 </td>";
                                             echo "</tr>";
@@ -139,6 +142,34 @@ if(!isset($_SESSION['user_id']))
             </div>
         </div>
     </div>
+
+    <!-- Modal dengan Form Input -->
+    <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Buku Menu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="/admin/service/process_form.php" method="POST">
+                    <div class="modal-body">
+                        <!-- Input untuk Nama -->
+                        <div class="form-group">
+                            <label for="nama">Link</label>
+                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Link Buku Menu" required>
+                            <font color="red">disarankan link google drive</font>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-info">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <?php include '../layout/scripts-module.php'; ?>
 

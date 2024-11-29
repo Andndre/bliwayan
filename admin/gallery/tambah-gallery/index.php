@@ -78,8 +78,8 @@ if(!isset($_SESSION['user_id']))
                               </div>
                               
                               <div class="form-group cols-sm-6 mb-3">
-                                <input type="submit" value="Simpan" class="btn btn-success">
-                                <input type="reset" value="batal" class="btn btn-danger">
+                                <input type="submit" value="Simpan" class="btn btn-info">
+                                <input type="reset" value="Batal" class="btn btn-danger">
                               </div>
                             </form>
                           </div>

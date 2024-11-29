@@ -81,9 +81,9 @@ if(!isset($_SESSION['user_id']))
                                             echo "<td>" . $row['judul'] . "</td>";
                                             echo "<td>" . $row['jenis'] . "</td>";
                                             echo "<td>
-                                                    <a href='/admin/gallery/edit-gallery/index.php?id=" . $row['id'] . "' class='btn btn-sm btn-info shadow-sm'><i class='fas fa-pen fa-sm text-white-50'></i> Edit Menu</a>
+                                                    <a href='/admin/gallery/edit-gallery/index.php?id=" . $row['id'] . "' class='btn btn-sm btn-info shadow-sm'><i class='fas fa-pen fa-sm text-white-50'></i> Edit</a>
                                                     <a href='#' class='btn btn-sm btn-danger shadow-sm' onclick='confirmDelete(" . $row['id'] . ")'>
-                                                        <i class='fas fa-trash fa-sm text-white-50'></i> Hapus Menu
+                                                        <i class='fas fa-trash fa-sm text-white-50'></i> Hapus
                                                     </a>
                                                 </td>";
                                             echo "</tr>";
