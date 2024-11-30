@@ -11,6 +11,12 @@ $_ENV = parse_ini_file('../.env');
 	$result = $conn->query($sql);
 
 	$menus = $result->fetch_all(MYSQLI_ASSOC);
+
+	$sql = "SELECT * FROM buku_menu WHERE id = 1";
+
+	$result = $conn->query($sql);
+
+	$data = $result->fetch_assoc();
 ?>
 
 <main>
@@ -42,11 +48,11 @@ $_ENV = parse_ini_file('../.env');
 							</div>
 					<?php endforeach; ?>
 			</div>
-			<!-- <div class="row text-center pt-5">
+			<div class="row text-center pt-5">
 				<div class="col-12">
-					<button class="btn btn-outline-secondary"><?= text("See More", "Lihat Lebih Banyak") ?></button>
+					<a href="<?= $data['link'] ?>" class="btn btn-outline-secondary"><?= text("View More Menu", "Lihat Lebih Banyak Menu") ?></a>
 				</div>
-			</div> -->
+			</div>
 	</section>
 </main>
 <?php include '../components/footer.php'; ?>
