@@ -18,6 +18,27 @@
 
     // Tutup koneksi
     $stmt->close();
+
+    // Get media_social
+
+    $sql = "SELECT * FROM media_social WHERE id = ?";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->bind_param("i", $id);
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+            $data_media = $result->fetch_assoc();
+    } else {
+            echo "Media sosial tidak ditemukan!";
+            exit;
+    }
+    
+
     $conn->close();
 ?>
 
@@ -28,9 +49,9 @@
                 <img class="img-fluid" style="max-width: 200px;" src="/images/logo-bw.png" alt="bliwayan logo">
                 <p>Come for the food, and experience with our friendly service.</p>
                 <ul class="social-links list-unstyled d-flex gap-3">
-                    <li><a href="#" style="text-decoration: none; color: white;"><i data-feather="instagram" class="icon-size"></i></a></li>
-                    <li><a href="#" style="text-decoration: none; color: white;"><i data-feather="facebook" class="icon-size"></i></a></li>
-                    <li><a href="#" style="text-decoration: none; color: white;"><i data-feather="twitter" class="icon-size"></i></a></li>
+                    <li><a href="<?= $data_media['instagram'] ?>" style="text-decoration: none; color: white;"><i data-feather="instagram" class="icon-size"></i></a></li>
+                    <li><a href="<?= $data_media['facebook'] ?>" style="text-decoration: none; color: white;"><i data-feather="facebook" class="icon-size"></i></a></li>
+                    <li><a href="<?= $data_media['youtube'] ?>" style="text-decoration: none; color: white;"><i data-feather="youtube" class="icon-size"></i></a></li>
                 </ul>
             </div>
             <div class="col-md-4">
