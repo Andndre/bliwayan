@@ -5,6 +5,31 @@ if(!isset($_SESSION['user_id']))
 {
     header('location:/login/');
 }
+include '../service/config.php';
+
+// Ambil ID menu dari parameter URL
+$id = 1;
+
+// Ambil data menu berdasarkan ID dari database
+$sql = "SELECT * FROM buku_menu WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Jika menu ditemukan
+if ($result->num_rows > 0) {
+    $data = $result->fetch_assoc();
+} else {
+    echo "Data tidak ditemukan!";
+    exit;
+}
+
+// Tutup koneksi
+$stmt->close();
+$conn->close();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -153,12 +178,12 @@ if(!isset($_SESSION['user_id']))
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form action="/admin/service/process_form.php" method="POST">
+                <form action="/admin/service/bukuMenuUpdate.php" method="POST">
                     <div class="modal-body">
                         <!-- Input untuk Nama -->
                         <div class="form-group">
                             <label for="nama">Link</label>
-                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Link Buku Menu" required>
+                            <input type="text" class="form-control" id="link" value="<?php echo $data['link']; ?>" name="link" placeholder="Masukkan Link Buku Menu" required>
                             <font color="red">disarankan link google drive</font>
                         </div>
                     <div class="modal-footer">
@@ -219,6 +244,34 @@ if(!isset($_SESSION['user_id']))
             unset($_SESSION['alert']); // Hapus session status setelah digunakan
         endif; 
         ?>
+    </script>
+    <script>
+        <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'sukses'): ?>
+            // Tampilkan SweetAlert jika session status ada dan bernilai success
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Buku Menu berhasil diubah!',
+                confirmButtonText: 'OK'
+            });
+        <?php 
+            unset($_SESSION['alert']); // Hapus session status setelah digunakan
+        endif; 
+        ?>
+    </script>
+    <script>
+      <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'gagal'): ?>
+        Swal.fire({
+            icon: 'error',
+            title: 'Gagal!',
+            text: 'Terjadi kesalahan saat menyimpan data',
+            confirmButtonText: 'OK'
+        });
+      <?php 
+          unset($_SESSION['alert']); 
+      endif; 
+      ?>
+        
     </script>
 
 </body>

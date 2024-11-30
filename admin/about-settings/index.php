@@ -21,7 +21,22 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $data = $result->fetch_assoc();
 } else {
-    echo "Menu tidak ditemukan!";
+    echo "Data tidak ditemukan!";
+    exit;
+}
+
+// Ambil data menu berdasarkan ID dari database
+$sql2 = "SELECT * FROM media_social WHERE id = ?";
+$stmt2 = $conn->prepare($sql2);
+$stmt2->bind_param("i", $id);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
+
+// Jika menu ditemukan
+if ($result2->num_rows > 0) {
+    $data2 = $result2->fetch_assoc();
+} else {
+    echo "Data tidak ditemukan!";
     exit;
 }
 
@@ -62,6 +77,7 @@ $conn->close();
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">About</h1>
+                        <a href="#" data-toggle="modal" data-target="#inputModal" class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-pen fa-sm text-white-50"></i> Media Sosial</a>
                     </div>
 
                     
@@ -195,6 +211,38 @@ $conn->close();
             </div>
         </div>
     </div>
+    <!-- Modal dengan Form Input -->
+    <div class="modal fade" id="inputModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Media Sosial</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <form action="/admin/service/mediaSocialUpdate.php" method="POST">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="nama">Link Instagram</label>
+                            <input type="text" class="form-control" id="instagram" value="<?php echo $data2['instagram']; ?>" name="instagram" placeholder="Masukkan Link Instagram" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Link Facebook</label>
+                            <input type="text" class="form-control" id="facebook" value="<?php echo $data2['facebook']; ?>" name="facebook" placeholder="Masukkan Link Facebook" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nama">Link Youtube</label>
+                            <input type="text" class="form-control" id="youtube" value="<?php echo $data2['youtube']; ?>" name="youtube" placeholder="Masukkan Link Youtube" required>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-info">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
     <?php include '../layout/scripts-module.php'; ?>
@@ -233,11 +281,25 @@ $conn->close();
             Swal.fire({
                 icon: 'success',
                 title: 'Berhasil!',
-                text: 'Data about berhasil dihapus!',
+                text: 'Data about berhasil diubah!',
                 confirmButtonText: 'OK'
             });
         <?php 
             unset($_SESSION['alert']); 
+        endif; 
+        ?>
+    </script>
+    <script>
+        <?php if (isset($_SESSION['alert']) && $_SESSION['alert'] === 'berhasil'): ?>
+            // Tampilkan SweetAlert jika session status ada dan bernilai success
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Data media sosial berhasil diubah!',
+                confirmButtonText: 'OK'
+            });
+        <?php 
+            unset($_SESSION['alert']); // Hapus session status setelah digunakan
         endif; 
         ?>
     </script>
