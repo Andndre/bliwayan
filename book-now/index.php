@@ -45,7 +45,8 @@ $_ENV = parse_ini_file('../.env');
 		<div class="container py-5 d-flex flex-column gap-3">
 			<div class="pt-5"></div>
 			<h2 class="text-center" style="max-width: 560px; margin: 0 auto">Visit Our PlacesVideo Virtual Reality Tour Of Bli Wayan Cafe & Kitchen</h2>
-			<iframe class="img-fluid" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/Mbhm5Z2MPJY?si=nOYEEwWRrR4Irmnb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<iframe class="img-fluid" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/<?= $id ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			<!-- <iframe class="img-fluid" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/Mbhm5Z2MPJY?si=nOYEEwWRrR4Irmnb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
 		</div>
 	</section>
 </main>
