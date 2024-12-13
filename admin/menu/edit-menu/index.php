@@ -116,7 +116,7 @@ $conn->close();
                                     </div>
                                     
                                     <button type="submit" class="btn btn-info">Simpan</button>
-                                    <a href="menu.php" class="btn btn-danger">Batal</a>
+                                    <button type="reset" class="btn btn-danger">Batal</button>
                                 </form>
                                 </div>
                             </div>

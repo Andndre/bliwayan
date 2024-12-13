@@ -7,7 +7,7 @@ $_ENV = parse_ini_file('../.env');
 ?>
 <?php include '../components/navbar.php'; ?>
 <?php 
-	$sql = "SELECT * FROM menus";
+	$sql = "SELECT * FROM menus WHERE status = '1'";
 	$result = $conn->query($sql);
 
 	$menus = $result->fetch_all(MYSQLI_ASSOC);

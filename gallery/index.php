@@ -52,7 +52,7 @@ $_ENV = parse_ini_file('../.env');
         </div>
     </header>
     <?php
-        $sql = "SELECT * FROM gallerys";
+        $sql = "SELECT * FROM gallerys WHERE status = '1'";
         $result = $conn->query($sql);
 
         $gallery = $result->fetch_all(MYSQLI_ASSOC);

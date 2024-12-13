@@ -187,7 +187,7 @@ $conn->close();
                             <font color="red">disarankan link google drive</font>
                         </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <a href="/admin/menu" class="btn btn-danger" >Batal</a>
                         <button type="submit" class="btn btn-info">Simpan</button>
                     </div>
                 </form>

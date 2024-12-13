@@ -165,7 +165,7 @@ $conn->close();
                                     <input type="text" name="link_youtube" class="form-control" value="<?php echo $data['link_youtube']; ?>" required>
                                 </div>
                                 <button type="submit" class="btn btn-info">Simpan</button>
-                                <a href="menu.php" class="btn btn-danger">Batal</a>
+                                <button type="reset" class="btn btn-danger">Batal</button>
                           </form>
                           </div>
                       </div>
@@ -236,7 +236,7 @@ $conn->close();
                             <input type="text" class="form-control" id="youtube" value="<?php echo $data2['youtube']; ?>" name="youtube" placeholder="Masukkan Link Youtube" required>
                         </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                        <a href="/admin/about-settings" class="btn btn-danger">Batal</a>
                         <button type="submit" class="btn btn-info">Simpan</button>
                     </div>
                 </form>
