@@ -39,10 +39,10 @@ $_ENV = parse_ini_file('.env');
 				<h1 style="max-width: 600px;"><?= text("Best food for your taste", "Makanan terbaik untuk Anda") ?></h1>
 				<p style="max-width: 500px;"><?= text("Come for the food, and experience with our friendly service.", "Datanglah untuk mencicipi makanannya, dan rasakan pengalaman dengan layanan kami yang ramah.") ?></p>
 				<div class="d-flex gap-2 justify-content-center">
-					<a href="/book-now" class="btn btn-primary">
+					<!-- <a href="/book-now" class="btn btn-primary">
 						<?= text("Book a Table", 'Pesan Meja') ?>
-					</a>
-					<a href="/menu" class="btn btn-outline-secondary">
+					</a> -->
+					<a href="/menu" class="btn btn-primary">
 						<?= text("Explore Our Menu", 'Lihat Menu Kami') ?>
 					</a>
 				</div>
@@ -92,9 +92,9 @@ $_ENV = parse_ini_file('.env');
 				</div>
 			</div>
 		</div>
-		<div class="pt-4 text-center">
+		<!-- <div class="pt-4 text-center">
 			<a class="btn btn-outline-secondary" href="/book-now/"><?= text("Book a Table", "Pesan Meja") ?></a>
-		</div>
+		</div> -->
 	</section>
 	<!-- Browse Our Menu - End -->
 
@@ -104,17 +104,7 @@ $_ENV = parse_ini_file('.env');
 				<div class="pt-5"></div>
 				<div class="row">	
 					<div class="col-12 col-lg-6" style="position: relative;">
-						<img class="img-fluid" style="width: 80%;" src="/admin/gambar/about/<?=$data['gambar_pertama']?>" alt="illustration">
-						<div class="card card-dark" style="position: absolute; bottom: 0; right: 1rem;">
-							<div class="card-body w-100" style="max-width: 300px;">
-								<h3><?= text("Come and visit us", "Datang dan kunjungi kami") ?></h3>
-								<ul class="list-unstyled">
-									<li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> <?= $data["whatsapp"] ?></li>
-									<li class="d-flex gap-2 align-items-start"><i data-feather="mail" class="icon-size"></i> <a href="mailto:<?= $data["email"] ?>" style="text-decoration: none; color: white;"><?= $data["email"] ?></a></li>
-									<li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> <?= $data["alamat"] ?></li>
-                </ul>
-							</div>
-						</div>
+						<img class="img-fluid" style="width: 100%;" src="/admin/gambar/about/<?=$data['gambar_pertama']?>" alt="illustration">
 					</div>
 					<div class="col-12 col-lg-6">
 						<h2><?= text("We provide healthy food for your family", "Kami menyajikan makanan sehat untuk keluarga Anda") ?>.</h2>

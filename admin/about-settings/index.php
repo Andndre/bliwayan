@@ -122,22 +122,22 @@ $conn->close();
                                     <label>Alamat</label>
                                     <textarea name="alamat" class="form-control" rows="4"><?php echo $data['alamat']; ?></textarea>
                                 </div>
-                                <video id="preview-video" class="img-fluid rounded mx-auto d-block mt-3" width="320" height="240" controls>
+                                <!-- <video id="preview-video" class="img-fluid rounded mx-auto d-block mt-3" width="320" height="240" controls>
                                     <source src="/admin/gambar/about/<?php echo $data['video']; ?>" type="video/mp4">
                                     Browser Anda tidak mendukung video.
                                 </video>
                                 <div class="form-group">
                                     <label>Video (Kosongkan jika tidak ingin mengganti)</label>
                                     <input type="file" name="video" class="form-control">
-                                </div>
-                                <div class="form-group">
+                                </div> -->
+                                <!-- <div class="form-group">
                                     <label>Judul Video</label>
                                     <input type="text" name="judul_video" class="form-control" value="<?php echo $data['judul_video']; ?>" required>
-                                </div>
-                                <div class="form-group">
+                                </div> -->
+                                <!-- <div class="form-group">
                                     <label>Judul Video English</label>
                                     <input type="text" name="judul_video_english" class="form-control" value="<?php echo $data['judul_video_english']; ?>" required>
-                                </div>
+                                </div> -->
                                 <img id="preview-image2" src="/admin/gambar/about/<?php echo $data['gambar_kedua']; ?>" class="img-fluid rounded mx-auto d-block" width="200px">
                                 <div class="form-group">
                                     <label>Gambar (Kosongkan jika tidak ingin mengganti)</label>
@@ -161,8 +161,20 @@ $conn->close();
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Link YouTube</label>
+                                    <label>Link YouTube Company Profile</label>
+                                    <input type="text" name="company_profile" class="form-control" value="<?php echo $data['company_profile']; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Link YouTube Virtual Tour</label>
                                     <input type="text" name="link_youtube" class="form-control" value="<?php echo $data['link_youtube']; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Link Brand Book</label>
+                                    <input type="text" name="brand_book" class="form-control" value="<?php echo $data['brand_book']; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Waktu Buka</label>
+                                    <textarea required name="waktu_buka" class="form-control" rows="4"><?php echo $data['waktu_buka']; ?></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-info">Simpan</button>
                                 <button type="reset" class="btn btn-danger">Batal</button>

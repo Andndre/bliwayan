@@ -15,15 +15,18 @@ $deskripsi = $_POST['deskripsi'];
 $whatsapp = $_POST['whatsapp'];
 $email = $_POST['email'];
 $alamat = $_POST['alamat'];
-$judul_video = $_POST['judul_video'];
+// $judul_video = $_POST['judul_video'];
 $judul_kedua = $_POST['judul_kedua'];
 $deskripsi_kedua = $_POST['deskripsi_kedua'];
+$company_profile = $_POST['company_profile'];
 $link_youtube = $_POST['link_youtube'];
 $judul_english = $_POST['judul_english'];
 $deskripsi_english = $_POST['deskripsi_english'];
-$judul_video_english = $_POST['judul_video_english'];
+// $judul_video_english = $_POST['judul_video_english'];
 $judul_kedua_english = $_POST['judul_kedua_english'];
 $deskripsi_kedua_english = $_POST['deskripsi_kedua_english'];
+$brand_book = $_POST['brand_book'];
+$waktu_buka = $_POST['waktu_buka'];
 
 // Ambil data lama dari database untuk mengecek gambar sebelumnya
 $query = "SELECT gambar_pertama, gambar_kedua, video FROM deskripsi WHERE id = ?";
@@ -61,17 +64,17 @@ if (!empty($_FILES['gambar_kedua']['name'])) {
 }
 
 // Proses video jika ada
-if (!empty($_FILES['video']['name'])) {
-    if ($old_video && file_exists("../gambar/about/" . $old_video)) {
-        unlink("../gambar/about/" . $old_video);
-    }
-    $video = $_FILES['video']['name'];
-    $video_tmp = $_FILES['video']['tmp_name'];
-    $video_path = "../gambar/about/" . basename($video);
-    move_uploaded_file($video_tmp, $video_path);
-} else {
-    $video = null;
-}
+// if (!empty($_FILES['video']['name'])) {
+//     if ($old_video && file_exists("../gambar/about/" . $old_video)) {
+//         unlink("../gambar/about/" . $old_video);
+//     }
+//     $video = $_FILES['video']['name'];
+//     $video_tmp = $_FILES['video']['tmp_name'];
+//     $video_path = "../gambar/about/" . basename($video);
+//     move_uploaded_file($video_tmp, $video_path);
+// } else {
+//     $video = null;
+// }
 
 // Query untuk mengupdate data
 $sql = "UPDATE deskripsi SET 
@@ -80,19 +83,22 @@ $sql = "UPDATE deskripsi SET
         whatsapp = ?, 
         email = ?, 
         alamat = ?, 
-        judul_video = ?, 
+        -- judul_video = ?, 
         judul_kedua = ?, 
         deskripsi_kedua = ?, 
+        company_profile = ?,
         link_youtube = ?, 
         judul_english = ?, 
         deskripsi_english = ?, 
-        judul_video_english = ?, 
+        -- judul_video_english = ?, 
         judul_kedua_english = ?, 
-        deskripsi_kedua_english = ?";
+        deskripsi_kedua_english = ?, 
+        brand_book = ?,
+        waktu_buka = ?";
 
 // Tambahkan update gambar dan video jika ada
-$types = "ssssssssssssss";
-$params = [$judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $link_youtube, $judul_english, $deskripsi_english, $judul_video_english, $judul_kedua_english, $deskripsi_kedua_english];
+$types = "sssssssssssssss";
+$params = [$judul, $deskripsi, $whatsapp, $email, $alamat, $judul_kedua, $deskripsi_kedua, $company_profile, $link_youtube, $judul_english, $deskripsi_english, $judul_kedua_english, $deskripsi_kedua_english, $brand_book, $waktu_buka];
 
 if ($gambar_pertama) {
     $sql .= ", gambar_pertama = ?";
@@ -104,11 +110,11 @@ if ($gambar_kedua) {
     $types .= "s";
     $params[] = $gambar_kedua;
 }
-if ($video) {
-    $sql .= ", video = ?";
-    $types .= "s";
-    $params[] = $video;
-}
+// if ($video) {
+//     $sql .= ", video = ?";
+//     $types .= "s";
+//     $params[] = $video;
+// }
 
 $sql .= " WHERE id = ?";
 $types .= "i";

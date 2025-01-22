@@ -69,8 +69,8 @@
             <div class="col-md-4">
                 <h4><?= text('Contact Us', 'Hubungi Kami') ?></h4>
                 <ul class="list-unstyled">
-                    <li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> <?= $data["alamat"] ?></li>
-                    <li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> <?= $data["whatsapp"] ?></li>
+                    <li class="d-flex gap-2 align-items-start"><i data-feather="map-pin" class="icon-size"></i> <a href="https://maps.app.goo.gl/wbKoxV8onhHTP13U9" style="text-decoration: none; color: white;"><?= $data["alamat"] ?></a></li>
+                    <li class="d-flex gap-2 align-items-start"><i data-feather="phone-call" class="icon-size"></i> <a href="https://wa.me/62<?= preg_replace('/^0/', '', str_replace('-', '', $data['whatsapp'])) ?>" style="text-decoration: none; color: white;"><?= $data["whatsapp"] ?></a></li>
                     <li class="d-flex gap-2 align-items-start"><i data-feather="mail" class="icon-size"></i> <a href="mailto:<?= $data["email"] ?>" style="text-decoration: none; color: white;"><?= $data["email"] ?></a></li>
                 </ul>
             </div>

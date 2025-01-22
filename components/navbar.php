@@ -64,9 +64,6 @@ if (!isset($_GET['lang']) && isset($_SESSION['lang'])) {
         </li>
       </ul>
       <div class="navbar-nav ml-auto">
-        <div class="nav-item">
-          <a class="btn btn-outline-secondary" href="/book-now/"><?= text('Book a Table', 'Pesan Meja') ?></a>
-        </div>
         <!-- Language Dropdown -->
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
