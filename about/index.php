@@ -44,27 +44,19 @@ $_ENV = parse_ini_file('../.env');
 		</div>
 	</section>
 	<!-- We provide healthy food for your family - End -->
-	<section style="position: relative;">
-	<?php 
+			
+	<section class="pt-5">
+		<div class="container py-5 d-flex flex-column gap-3">
+			<div class="pt-5"></div>
+			<h2 class="text-center" style="max-width: 560px; margin: 0 auto"><?= text($data['judul_video'], $data['judul_video_english']) ?></h2>
+			<?php 
 				$youtube_profile = $data["company_profile"];
 				// get the id from the url
 				$last_profile = explode("/", $youtube_profile)[3];
 				$id_profile = explode("?", $last_profile)[0];
-	?>
-	<iframe id="video-profile" src="https://www.youtube.com/embed/<?= $id_profile ?>" class="img-fluid" style="width: 100%; object-fit: cover; aspect-ratio: 2/1;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		<!-- <iframe class="img-fluid" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/<?= $id ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
-		<!-- overlay black with text in the center -->
-		<!-- <div id="overlay-video" class="d-flex justify-content-center align-items-center flex-column" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; background-color: rgba(0, 0, 0, 0.5); z-index: 1; gap: 1rem">
-			<button id="play-button" class="btn btn-circle btn-white"><i data-feather="play"></i></button>
-			<h2 style="color: white;"><?= text($data["judul_video_english"], $data["judul_video"]) ?></h2>
-			<script>
-				$('#play-button').click(function() {
-					$('#overlay-video').fadeOut("slow", "linear", function() {
-						$('#overlay-video').remove();
-					});
-				})
-			</script>
-		</div> -->
+			?>
+			<iframe class="img-fluid" style="aspect-ratio: 16/9;" src="https://www.youtube.com/embed/<?= $id_profile ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		</div>
 	</section>
 	<?php
 	// Array of services with icon, title, and description

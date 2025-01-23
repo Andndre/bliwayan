@@ -107,9 +107,8 @@ $_ENV = parse_ini_file('.env');
 						<img class="img-fluid" style="width: 100%;" src="/admin/gambar/about/<?=$data['gambar_pertama']?>" alt="illustration">
 					</div>
 					<div class="col-12 col-lg-6">
-						<h2><?= text("We provide healthy food for your family", "Kami menyajikan makanan sehat untuk keluarga Anda") ?>.</h2>
-						<p class="pt-3"><?= text("The story of Bli Wayan Cafe & Kitchen begins with a vision to become a comfortable place to eat, able to satisfy customers, making the taste of the food memorable and hard to forget. Rooted in a rich culinary culture, we strive to honor our local culinary riches while incorporating global flavors.", "Kami memiliki visi untuk menjadi tempat yang nyaman untuk makan, mampu memuaskan pelanggan, membuat rasa makanan yang tidak terlupakan. Berakar dalam budaya kuliner yang kaya, kami berusaha untuk menghormati kekayaan kuliner lokal kami sambil mengintegrasikan rasa global.") ?></p>
-						<p class="pt-3"><?= text("At Bli Wayan Cafe & Kitchen, we believe that dining is not just about the food, but also about the entire experience. Our staff, known for their friendliness and dedication, strives to make every visit a memorable moment.", "Di Bli Wayan Cafe & Kitchen, kami percaya bahwa makan tidak hanya tentang makanan, tapi juga tentang pengalaman keseluruhan. Staf kami, yang dikenal karena kesabaran dan dedikasi, berusaha keras untuk membuat setiap kunjungan menjadi momen yang tak terlupakan.") ?></p>
+						<h2><?php echo text($data['judul'], $data['judul_english']); ?></h2>
+						<p class="pt-3"><?php echo text($data['deskripsi'], $data['deskripsi_english']); ?></p>
 						<a href="/about" class="btn btn-outline-secondary mt-3"><?= text("More About Us", "Tentang Kami") ?></a>
 					</div>
 				</div>

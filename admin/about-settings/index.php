@@ -130,14 +130,7 @@ $conn->close();
                                     <label>Video (Kosongkan jika tidak ingin mengganti)</label>
                                     <input type="file" name="video" class="form-control">
                                 </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Judul Video</label>
-                                    <input type="text" name="judul_video" class="form-control" value="<?php echo $data['judul_video']; ?>" required>
-                                </div> -->
-                                <!-- <div class="form-group">
-                                    <label>Judul Video English</label>
-                                    <input type="text" name="judul_video_english" class="form-control" value="<?php echo $data['judul_video_english']; ?>" required>
-                                </div> -->
+                                
                                 <img id="preview-image2" src="/admin/gambar/about/<?php echo $data['gambar_kedua']; ?>" class="img-fluid rounded mx-auto d-block" width="200px">
                                 <div class="form-group">
                                     <label>Gambar (Kosongkan jika tidak ingin mengganti)</label>
@@ -159,10 +152,17 @@ $conn->close();
                                     <label>Deskripsi Kedua English</label>
                                     <textarea name="deskripsi_kedua_english" class="form-control" rows="7"><?php echo $data['deskripsi_kedua_english']; ?></textarea>
                                 </div>
-
                                 <div class="form-group">
                                     <label>Link YouTube Company Profile</label>
                                     <input type="text" name="company_profile" class="form-control" value="<?php echo $data['company_profile']; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Judul Video Company Profile</label>
+                                    <input type="text" name="judul_video" class="form-control" value="<?php echo $data['judul_video']; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Judul Video Company Profile English</label>
+                                    <input type="text" name="judul_video_english" class="form-control" value="<?php echo $data['judul_video_english']; ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Link YouTube Virtual Tour</label>

@@ -15,14 +15,14 @@ $deskripsi = $_POST['deskripsi'];
 $whatsapp = $_POST['whatsapp'];
 $email = $_POST['email'];
 $alamat = $_POST['alamat'];
-// $judul_video = $_POST['judul_video'];
+$judul_video = $_POST['judul_video'];
 $judul_kedua = $_POST['judul_kedua'];
 $deskripsi_kedua = $_POST['deskripsi_kedua'];
 $company_profile = $_POST['company_profile'];
 $link_youtube = $_POST['link_youtube'];
 $judul_english = $_POST['judul_english'];
 $deskripsi_english = $_POST['deskripsi_english'];
-// $judul_video_english = $_POST['judul_video_english'];
+$judul_video_english = $_POST['judul_video_english'];
 $judul_kedua_english = $_POST['judul_kedua_english'];
 $deskripsi_kedua_english = $_POST['deskripsi_kedua_english'];
 $brand_book = $_POST['brand_book'];
@@ -63,7 +63,7 @@ if (!empty($_FILES['gambar_kedua']['name'])) {
     $gambar_kedua = null;
 }
 
-// Proses video jika ada
+// // Proses video jika ada
 // if (!empty($_FILES['video']['name'])) {
 //     if ($old_video && file_exists("../gambar/about/" . $old_video)) {
 //         unlink("../gambar/about/" . $old_video);
@@ -83,22 +83,22 @@ $sql = "UPDATE deskripsi SET
         whatsapp = ?, 
         email = ?, 
         alamat = ?, 
-        -- judul_video = ?, 
+        judul_video = ?, 
         judul_kedua = ?, 
         deskripsi_kedua = ?, 
         company_profile = ?,
         link_youtube = ?, 
         judul_english = ?, 
         deskripsi_english = ?, 
-        -- judul_video_english = ?, 
+        judul_video_english = ?, 
         judul_kedua_english = ?, 
         deskripsi_kedua_english = ?, 
         brand_book = ?,
         waktu_buka = ?";
 
 // Tambahkan update gambar dan video jika ada
-$types = "sssssssssssssss";
-$params = [$judul, $deskripsi, $whatsapp, $email, $alamat, $judul_kedua, $deskripsi_kedua, $company_profile, $link_youtube, $judul_english, $deskripsi_english, $judul_kedua_english, $deskripsi_kedua_english, $brand_book, $waktu_buka];
+$types = "sssssssssssssssss";
+$params = [$judul, $deskripsi, $whatsapp, $email, $alamat, $judul_video, $judul_kedua, $deskripsi_kedua, $company_profile, $link_youtube, $judul_english,  $deskripsi_english, $judul_video_english,  $judul_kedua_english, $deskripsi_kedua_english, $brand_book, $waktu_buka];
 
 if ($gambar_pertama) {
     $sql .= ", gambar_pertama = ?";
