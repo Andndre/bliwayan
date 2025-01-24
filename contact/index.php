@@ -62,7 +62,7 @@
             </div>
             <div class="pt-5 row" style="max-width: 730px; margin: 0 auto">
                 <div class="col-12 col-md-6">
-                    <p class="d-flex align-items-center gap-2">
+                    <div class="d-flex align-items-center gap-2" style="margin-bottom: 1rem;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="#1EFF00" stroke-width="2" stroke-linecap="round"
                             stroke-linejoin="round">
@@ -71,11 +71,14 @@
                             <path
                                 d="M9.49 10a7.58 7.58 0 0 0 .72 1.42A8 8 0 0 0 14 14.5M9.49 10a7.47 7.47 0 0 1-.4-1.4.51.51 0 0 1 .52-.6h0a.54.54 0 0 1 .51.37l.38 1.13ZM14 14.5a7.8 7.8 0 0 0 1.43.41.51.51 0 0 0 .6-.52h0a.54.54 0 0 0-.37-.51l-1.16-.38Z" />
                         </svg>
-                        <a href="https://wa.me/62<?= preg_replace('/^0/', '', str_replace('-', '', $data['whatsapp'])) ?>"
-                            style="text-decoration: none; color: black;">
-                            <?= $data['whatsapp'] ?>
-                        </a>
-                    </p>
+                        <div class="">
+                            <p class="mb-0 " style="font-size: 16px;">BOOK YOUR TABLE</p>
+                            <a href="https://wa.me/62<?= preg_replace('/^0/', '', str_replace('-', '', $data['whatsapp'])) ?>"
+                                style="text-decoration: none; color: black;">
+                                <?= $data['whatsapp'] ?>
+                            </a>
+                        </div>
+                    </div>
                     <p class="d-flex align-items-center gap-2">
                         <!-- instagram -->
                         <i data-feather="instagram" class="icon-size" style="color: #1EFF00;"></i>
@@ -159,7 +162,7 @@
         <section>
             <div class="container py-5 d-flex flex-column gap-3">
                 <?php
-                $youtube = $data['company_profile'];
+                $youtube = $data['link_youtube'];
                 // get the id from the url
                 $last = explode('/', $youtube)[3];
                 $id = explode('?', $last)[0];

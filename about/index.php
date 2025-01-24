@@ -36,8 +36,8 @@ $_ENV = parse_ini_file('../.env');
 					<img class="img-fluid" style="width: 100%;" src="/admin/gambar/about/<?=$data['gambar_pertama']?>" alt="illustration">
 				</div>
 				<div class="col-12 col-lg-6">
-					<h2><?php echo text($data['judul'], $data['judul_english']); ?></h2>
-					<p class="pt-3"><?php echo text($data['deskripsi'], $data['deskripsi_english']); ?></p>
+					<h2><?php echo text($data['judul_english'], $data['judul']); ?></h2>
+					<p class="pt-3"><?php echo text($data['deskripsi_english'], $data['deskripsi']); ?></p>
 					<a href="<?= $data['brand_book'] ?>" class="btn btn-outline-secondary mt-3"><?= text("View Brand Book", "Lihat Brand Book") ?></a>
 				</div>
 			</div>
@@ -151,8 +151,8 @@ $_ENV = parse_ini_file('../.env');
 			<div class="pt-5"></div>
 			<div class="row">	
 				<div class="col-12 col-lg-7">
-					<h2><?php echo text($data['judul_kedua'], $data['judul_kedua_english']); ?></h2>
-					<p class="pt-3" style="max-width: 560px;"><?php echo text($data['deskripsi_kedua'], $data['deskripsi_kedua_english']); ?></p>
+					<h2><?php echo text($data['judul_kedua_english'], $data['judul_kedua']); ?></h2>
+					<p class="pt-3" style="max-width: 560px;"><?php echo text($data['deskripsi_kedua_english'], $data['deskripsi_kedua']); ?></p>
 				</div>
 				<div class="col-12 col-lg-5">
 					<img class="img-fluid" src="/admin/gambar/about/<?=$data['gambar_kedua'] ?>" alt="illustration">

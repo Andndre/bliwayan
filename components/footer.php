@@ -62,7 +62,6 @@
                         <li><a href="/about" style="text-decoration: none; color: white;">About</a></li>
                         <li><a href="/menu" style="text-decoration: none; color: white;">Menu</a></li>
                         <li><a href="/gallery" style="text-decoration: none; color: white;">Gallery</a></li>
-                        <li><a href="/book-now" style="text-decoration: none; color: white;">Reservasi</a></li>
                     </ul>
                 </nav>
             </div>
